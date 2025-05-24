@@ -5,6 +5,7 @@
 \usepackage[table]{xcolor}
 \usepackage{colortbl}
 \usepackage{caption}
+\usepackage{graphicx}
 
 \materia{Dispositivos Electronicos I}
 \titulo{Trabajo Practico N°2: Diodos rectificadores y zener}
@@ -18,16 +19,23 @@
 
 \chapter{Introduccion}
 
-  En este segundo trabajo práctico se analizó y midió el comportamiento de diodos rectificadores, tanto de silicio como 
-  de germanio, y de diodos zener. Se busca:
+  El estudio de los diodos rectificadores y zener resulta fundamental para la comprensión y el diseño de circuitos
+  electrónicos de potencia y regulación. Estos componentes presentan comportamientos no lineales que deben analizarse
+  cuidadosamente, tanto en condiciones normales como en situaciones extremas de funcionamiento. En este trabajo práctico
+  se propone un abordaje integral que combina la simulación mediante modelos SPICE con la implementación y medición
+  experimental de circuitos sencillos en laboratorio.
+    
+  Los objetivos principales de esta experiencia son: analizar las especificaciones de los diodos rectificadores y zener,
+  identificar su comportamiento en términos de tensión, corriente y disipación de potencia, y evaluar la fidelidad de
+  los modelos de simulación ajustando sus parámetros internos en base a los datos provistos por los fabricantes.
+  Asimismo, se busca contrastar los resultados obtenidos en simulación con mediciones reales, utilizando instrumentos
+  como el multímetro y el osciloscopio, con el fin de comprender las limitaciones prácticas y validar los modelos
+  teóricos empleados.
+
+  Este enfoque teórico-práctico permite no solo consolidar conocimientos sobre el funcionamiento de estos dispositivos
+  semiconductores, sino también desarrollar habilidades en el uso de herramientas de simulación y medición, esenciales
+  para la práctica profesional en ingeniería electrónica.
   
-  \begin{itemize}
-    \item Entender su funcionamiento.
-    \item Comparar el diodo ideal simulado con el diodo real.
-    \item Ver como la curva es afectada por la temperatura del dispositivo.
-  \end{itemize}
-
-
 \chapter{Identificacion de pines}
 
   \begin{center}
@@ -58,44 +66,236 @@
   \section{Actividad de simulación}
   
   \section{Actividad de laboratortio}
-  
-    \subsection{Diodo de silicio}
+    En las clases teóricas se ha visto que el diodo no tiene un comportamiento lineal. Pudimos observar su comportamiento no lineal en la simulación del inciso anterior. Ahora, lo observaremos en el laboratorio de la facultad, con el objetivo de comprobar la teoría y la simulación con la realidad. Para lograr esto, implementaremos el siguiente circuito:
+
+    \begin{figure}[H]
+        \centering
+        \begin{tikzpicture}
+    	% Paths, nodes and wires:
+    	\draw (8.25, 4.5) to[empty diode, l={$D$}, label distance=0.02cm] (8.25, 2.75);
+    	\draw (5.25, 4.75) to[american resistor, l={$R_D$}, label distance=0.02cm] (7.25, 4.75);
+    	\draw (2.75, 2.75) to[voltmeter, l={$V_{in}$}, label distance=0.02cm] (2.75, 4.5);
+    	\draw (9.75, 2.75) to[voltmeter, l_={$V_d$}, label distance=0.02cm] (9.75, 4.5);
+    	\draw (5.25, 2.5) to[ammeter, l={$I_D$}, label distance=0.02cm] (7.25, 2.5);
+    	\draw (4.25, 4.5) -| (4.25, 4.75) -- (5.25, 4.75);
+    	\draw (4.25, 2.75) -| (4.25, 2.5) -- (5.25, 2.5);
+    	\draw (7.25, 4.75) -- (8.25, 4.75) -| (8.25, 4.5);
+    	\draw (7.25, 2.5) -- (8.25, 2.5) -| (8.25, 2.75);
+    	\draw (8.25, 4.75) -- (9.75, 4.75) -| (9.75, 4.5);
+    	\draw (8.25, 2.5) -| (9.75, 2.75);
+    	\draw (2.75, 4.5) -| (2.75, 4.75) -- (4.25, 4.75);
+    	\draw (2.75, 2.75) -| (2.75, 2.5) -- (4.25, 2.5);
+    	\draw (4.25, 4.5) to[battery1, l={$V$}, label distance=0.02cm] (4.25, 2.75);
+        \end{tikzpicture}
+        \caption{\footnotesize
+        Circuito básico del diodo en polarización directa con los instrumentos de medición.}
+    \end{figure}
+
+    En este circuito, $V$ es una fuente de tensión variable, con la cual alimentaremos el circuito para analizar el comportamiento del diodo en varios puntos y así poder trazar una curva de características del mismo. Se han tomado 10 puntos, partiendo de 0V hasta 5V.
     
-      \begin{table}[h!]
-      \centering
+    A continuación, se presenta una tabla, tanto para el diodo de $Si$ como para el de $Ge$, con los valores obtenidos de $V_D$ e $I_D$ para los distintos valores de alimentación. También, se presenta una gráfica de las curvas de características obtenidas para ambos diodos y, fotografías de los instrumentos de medición utilizados y disposición de los circuitos:
+  
+    \subsubsection{Diodo de silicio}
+    
+      \begin{table}[H]
+      \centering 
       \renewcommand{\arraystretch}{1.5}
       \setlength{\tabcolsep}{8pt}
+      \resizebox{\textwidth}{!}{
       \begin{tabular}{|c|*{13}{c|}}
       \hline
-      \textbf{$V_1$ [V]} & 0 & 0.1 & 0.3 & 0.4 & \cellcolor{yellow}0.45 & \cellcolor{yellow}0.5 & \cellcolor{yellow}0.55 & \cellcolor{yellow}0.6 & \cellcolor{yellow}0.65 & \cellcolor{yellow}0.7 & 1 & 3 & 5 \\
+      \textbf{$V_1$ [V]} & 0 & 0.098 & 0.304 & 0.399 & \cellcolor{yellow}0.448 & \cellcolor{yellow}0.491 & \cellcolor{yellow}0.548 & \cellcolor{yellow}0.599 & \cellcolor{yellow}0.653 & \cellcolor{yellow}0.693 & 1.047 & 3.028 & 5.037 \\
       \hline
-      $V_D$ &  &  &  &  &  &  &  &  &  &  &  &  &  \\
+      $V_D[V]$ & 0 & 0.097 & 0.29 & 0.37 & 0.4 & 0.42 & 0.44 & 0.46 & 0.48 & 0.48 & 0.53 & 0.61 & 0.64 \\
       \hline
-      $I_D$ &  &  &  &  &  &  &  &  &  &  &  &  &  \\
+      $I_D[mA]$ & 0 & 0 & 0 & 0 & 0 & 0.053 & 0.087 & 0.124 & 0.165 & 0.196 & 0.511 & 2.4 & 4.4 \\
       \hline
       \end{tabular}
+      }
       \caption{Tabla de valores $V_D$ e $I_D$ para diodo de silicio 1N4007.}
       \label{a}
       \end{table}
     
-    \subsection{Diodo de germanio}
-    
-      \begin{table}[h!]
+    \subsubsection{Diodo de germanio}
+      \begin{table}[H]
       \centering
       \renewcommand{\arraystretch}{1.5}
       \setlength{\tabcolsep}{8pt}
+      \resizebox{\textwidth}{!}{
       \begin{tabular}{|c|*{13}{c|}}
       \hline
-      \textbf{$V_1$ [V]} & 0 & 0.1 & 0.3 & 0.4 & \cellcolor{yellow}0.45 & \cellcolor{yellow}0.5 & \cellcolor{yellow}0.55 & \cellcolor{yellow}0.6 & \cellcolor{yellow}0.65 & \cellcolor{yellow}0.7 & 1 & 3 & 5 \\
+      \textbf{$V_1$ [V]} & 0.051 & 0.103 & 0.154 & 0.201 & \cellcolor{yellow}0.245 & \cellcolor{yellow}0.301 & \cellcolor{yellow}0.344 & \cellcolor{yellow}0.674 & \cellcolor{yellow}0.694 & \cellcolor{yellow}0.907 & 1.5 & 3 & 5 \\
       \hline
-      $V_D$ &  &  &  &  &  &  &  &  &  &  &  &  &  \\
+      $V_D[V]$ & 0.04 & 0.08 & 0.13 & 0.16 & 0.18 & 0.19 & 0.22 & 0.26 & 0.24 & 0.26 & 0.28 & 0.32 & 0.35 \\
       \hline
-      $I_D$ &  &  &  &  &  &  &  &  &  &  &  &  &  \\
+      $I_D[mA]$ & 0.0006 & 0.0027 & 0.012 & 0.029 & 0.055 & 0.1 & 0.19 & 0.68 & 0.4 & 0.6 & 1.2 & 2.7 & 4.7 \\
       \hline
       \end{tabular}
+      }
       \caption{Tabla de valores $V_D$ e $I_D$ para diodo de germanio 1N60.}
       \label{b}
       \end{table}
+
+    \subsubsection{Curvas $I_D$ vs $V_D$}
+    \begin{figure}[H]
+        \begin{tikzpicture}
+          \begin{axis}[
+            axis lines = left,
+            ylabel = {$I_{D}[mA]$},
+            xlabel = {$V_{D}[V]$},
+            width=15cm,
+            height=7cm,
+            ymin=0, ymax=5,
+            xmin=0, xmax=0.7,
+            ytick={0,1,2,3,4,5},
+            xtick={0,0.1,0.2,0.3,0.4,0.5,0.6,0.7},
+            clip=false, % necesario para dibujar fuera del área del gráfico
+          ]
+            % DIODO SILICIO
+            \addplot[
+              color=blue,
+              mark=*,
+              only marks,
+              mark options={scale=1.3}
+            ]
+            coordinates {
+                (0, 0)
+                (0.097, 0)
+                (0.29, 0)
+                (0.37, 0)
+                (0.4, 0)
+                (0.42, 0.053)
+                (0.44, 0.087)
+                (0.46, 0.124)
+                (0.48, 0.165)
+                (0.48, 0.196)
+                (0.53, 0.511)
+                (0.61, 2.4)
+                (0.64, 4.4)
+            };
+            \addplot[
+              color=blue,
+              thick
+            ]
+            coordinates {
+                (0, 0)
+                (0.097, 0)
+                (0.29, 0)
+                (0.37, 0)
+                (0.4, 0)
+                (0.42, 0.053)
+                (0.44, 0.087)
+                (0.46, 0.124)
+                (0.48, 0.165)
+                (0.48, 0.196)
+                (0.53, 0.511)
+                (0.61, 2.4)
+                (0.64, 4.4)
+            };
+            \node[align=left, anchor=west] at (axis cs:0.45,4) {Diodo\\de Silicio};
+            \draw[->, thick] (axis cs:0.5,3.5) -- (axis cs:0.57,1.5);
+            % FIN DIODO SILICIO
+            % DIODO GERMANIO
+            \addplot[
+              color=red,
+              mark=*,
+              only marks,
+              mark options={scale=1.3}
+            ]
+            coordinates {
+                (0.04, 0.0006)
+                (0.08, 0.0027)
+                (0.13, 0.012)
+                (0.16, 0.029)
+                (0.18, 0.055)
+                (0.19, 0.1)
+                (0.22, 0.19)
+                (0.26, 0.68)
+                (0.24, 0.4)
+                (0.26, 0.6)
+                (0.28, 1.2)
+                (0.32, 2.7)
+                (0.35, 4.7)
+            };
+            \addplot[
+              color=red,
+              thick
+            ]
+            coordinates {
+                (0.04, 0.0006)
+                (0.08, 0.0027)
+                (0.13, 0.012)
+                (0.16, 0.029)
+                (0.18, 0.055)
+                (0.19, 0.1)
+                (0.22, 0.19)
+                (0.26, 0.68)
+                (0.24, 0.4)
+                (0.26, 0.6)
+                (0.28, 1.2)
+                (0.32, 2.7)
+                (0.35, 4.7)
+            };
+            \node[align=left, anchor=west] at (axis cs:0.15,4) {Diodo\\de Germanio};
+            \draw[->, thick] (axis cs:0.2,3.5) -- (axis cs:0.28,1.4);
+            % FIN DIODO GERMANIO
+          \end{axis}
+        \end{tikzpicture}
+        \caption{\footnotesize
+        Gráfica con las curvas $I_D$ vs $V_D$ (medidos en el laboratorio) de los diodos de Silicio y Germanio.}
+        \end{figure}
+      
+    \subsubsection{Fotografías}
+      \begin{figure}[H]
+        \centering
+        \includegraphics[width=.35\textwidth]{pictures/disposicion-elementos.jpeg}
+        \caption{Fotografía general de los elementos utilizados para los ensayos.}
+      \end{figure}
+      \begin{figure}[h!]
+        \centering
+        \begin{minipage}{0.40\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{pictures/disposicion-circuito-silicio.jpeg}
+            \caption{Disposición de los elementos del circuito. Diodo de Silicio.}
+            \label{fig:silicio}
+        \end{minipage}
+        \hspace{0.05\textwidth} % Espacio entre imágenes
+        \begin{minipage}{0.5\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{pictures/disposicion-circuito-germanio.jpeg}
+            \caption{Disposición de los elementos del circuito. Diodo de Germanio.}
+            \label{fig:germanio}
+        \end{minipage}
+    \end{figure}
+    \begin{figure}[h!]
+        \centering
+        \begin{minipage}{0.3\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{pictures/fuentealim.jpeg}
+            \caption{Instrumentos: fuente de alimentación proporcionado por el laboratorio.}
+        \end{minipage}
+        \hspace{0.05\textwidth} % Espacio entre imágenes
+        \begin{minipage}{0.3\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{pictures/multimetro-facu.jpeg}
+            \caption{Instrumentos: multimétro digital Nº1, proporcionado por el laboratorio.}
+        \end{minipage}
+    \end{figure}
+    \begin{figure}[h!]
+        \centering
+        \begin{minipage}{0.3\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{pictures/multimetro-gaston.jpeg}
+            \caption{Instrumentos: multimétro digital Nº2.}
+        \end{minipage}
+        \hspace{0.05\textwidth} % Espacio entre imágenes
+        \begin{minipage}{0.3\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{pictures/multimetro-angelo.jpeg}
+            \caption{Instrumentos: multimétro digital Nº3.}
+        \end{minipage}
+    \end{figure}
+    
 
 \chapter{Comportamiento del diodo en funcion de la temperatura}
 
