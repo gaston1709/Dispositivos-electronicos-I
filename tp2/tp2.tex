@@ -386,7 +386,7 @@
   \section{Simulación y análisis}
   
     Para observar este efecto, se ha realizado una simulación del diodo 1N3198 sometido a tres temperaturas distintas: 
-    20 °C, 100 °C y 125 °C. El circuito simulado se muestra a continuación:
+    20 °C, 100 °C y 125 °C. El circuito simulado se muestra a continuación:
     
     \begin{figure}[H]
         \centering
@@ -480,13 +480,81 @@ V_{\text{out}} =
 \noindent
 Se observa un comportamiento similar, con la salida limitada a \( V_Z' \), actuando como recortador, pero en este caso con un umbral de corte distinto.
 
-\section*{Conclusión}
+\subsection*{Conclusión}
 
 Se comprobó que los diodos Zener permiten recortar el voltaje de salida una vez superado su valor de ruptura. Esto es útil para limitar la tensión en circuitos sensibles, estabilizar señales o implementar fuentes de voltaje fijo. Variar el tipo de diodo Zener modifica el umbral de recorte.
 
-
   
-  \section{Actividad de laboratortio}
+  \section{Actividad de laboratorio}
+
+\subsection*{Procedimiento}
+
+\begin{itemize}
+    \item Calcular para cada uno de los circuitos propuestos el valor de la resistencia limitadora de corriente.
+    \item Armar los circuitos propuestos, medir y graficar las señales de salida.
+    \item Sacar las conclusiones de cada circuito.
+\end{itemize}
+
+\subsection*{Circuito a)}
+
+\begin{itemize}
+    \item \textbf{Cálculo de resistencia:} 
+    \[
+    R = \frac{V_{\text{in}} - V_Z}{I_Z + I_L}
+    \]
+    Donde:
+    \begin{itemize}
+        \item \( V_{\text{in}} = 24\,\text{V}_{\text{rms}} \)
+        \item \( V_Z = 5{,}1\,\text{V} \) (Zener superior) y \( 20\,\text{V} \) (Zener inferior)
+    \end{itemize}
+\end{itemize}
+
+\begin{figure}[H]
+    \centering
+    \begin{minipage}{0.45\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{pictures/circuito_A.jpeg}
+    \caption{Montaje en protoboard del circuito a).}
+\end{minipage}
+\hspace{0.05\textwidth}
+    \begin{minipage}{0.4\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{pictures/circuito_A_osciloscopio.jpeg}
+    \caption{Señal de salida medida del circuito a).}
+\end{minipage}
+\end{figure}
+
+
+\subsection*{Circuito b)}
+
+\begin{itemize}
+    \item \textbf{Cálculo de resistencia:} 
+    \item \( V_Z = 6{,}8\,\text{V} \) (superior) y \( 12\,\text{V} \) (inferior)
+\end{itemize}
+
+\begin{figure}[H]
+    \centering
+    \begin{minipage}{0.45\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{pictures/circuito_B.jpeg}
+    \caption{Montaje en protoboard del circuito b).}
+\end{minipage}
+\hspace{0.05\textwidth}
+    \begin{minipage}{0.4\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{pictures/circuito_B_osciloscopio.jpeg}
+    \caption{Señal de salida medida del circuito b).}
+\end{minipage}
+\end{figure}
+
+\subsection*{Conclusiones}
+
+\begin{itemize}
+    \item Se confirmó que el diodo Zener actúa como recortador de voltaje cuando la señal supera su tensión de ruptura.
+    \item En ambos circuitos, se pudo observar una clara limitación en la señal de salida, lo cual coincide con el análisis teórico y simulado.
+    \item La comparación entre ambos circuitos permitió verificar el efecto de cambiar la tensión de ruptura del diodo Zener.
+\end{itemize}
+  
 
 \chapter{Análisis sobre parámetros de hoja de datos}
 
