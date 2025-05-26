@@ -65,8 +65,56 @@
 
   \section{Actividad de simulación}
   
+ 
+\begin{figure}[h]
+  \centering
+  \begin{minipage}{0.45\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{pictures/curva_diodo_silicio_circuito.jpeg}
+    \captionof{figure}{Epígrafe de la primera foto.}
+  \end{minipage}
+  \hfill
+  \begin{minipage}{0.45\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{pictures/curva_diodo_silicio_grafico.jpeg}
+    \captionof{figure}{Epígrafe de la segunda foto.}
+  \end{minipage}
+
+  \vspace{0.5cm}
+  
+  \caption{Epígrafe general de las dos imágenes.}
+  \label{c}
+\end{figure}
+
+
+\begin{figure}[h]
+  \centering
+  \begin{minipage}{0.45\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{pictures/curva_diodo_germanio_circuito.jpeg}
+    \captionof{figure}{Epígrafe de la primera foto.}
+  \end{minipage}
+  \hfill
+  \begin{minipage}{0.45\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{pictures/curva_diodo_germanio_grafico.jpeg}
+    \captionof{figure}{Epígrafe de la segunda foto.}
+  \end{minipage}
+
+  \vspace{0.5cm}
+  
+  \caption{Epígrafe general de las dos imágenes.}
+  \label{d}
+\end{figure}
+
+
+\newpage
+
   \section{Actividad de laboratortio}
-    En las clases teóricas se ha visto que el diodo no tiene un comportamiento lineal. Pudimos observar su comportamiento no lineal en la simulación del inciso anterior. Ahora, lo observaremos en el laboratorio de la facultad, con el objetivo de comprobar la teoría y la simulación con la realidad. Para lograr esto, implementaremos el siguiente circuito:
+    En las clases teóricas se ha visto que el diodo no tiene un comportamiento lineal. Pudimos observar su 
+    comportamiento no lineal en la simulación del inciso anterior. Ahora, lo observaremos en el laboratorio de la
+    facultad, con el objetivo de comprobar la teoría y la simulación con la realidad. Para lograr esto, implementaremos
+    el siguiente circuito:
 
     \begin{figure}[H]
         \centering
@@ -91,9 +139,14 @@
         Circuito básico del diodo en polarización directa con los instrumentos de medición.}
     \end{figure}
 
-    En este circuito, $V$ es una fuente de tensión variable, con la cual alimentaremos el circuito para analizar el comportamiento del diodo en varios puntos y así poder trazar una curva de características del mismo. Se han tomado 10 puntos, partiendo de 0V hasta 5V.
+    En este circuito, $V$ es una fuente de tensión variable, con la cual alimentaremos el circuito para analizar el 
+    comportamiento del diodo en varios puntos y así poder trazar una curva de características del mismo. Se han tomado
+    10 puntos, partiendo de 0V hasta 5V.
     
-    A continuación, se presenta una tabla, tanto para el diodo de $Si$ como para el de $Ge$, con los valores obtenidos de $V_D$ e $I_D$ para los distintos valores de alimentación. También, se presenta una gráfica de las curvas de características obtenidas para ambos diodos y, fotografías de los instrumentos de medición utilizados y disposición de los circuitos:
+    A continuación, se presenta una tabla, tanto para el diodo de $Si$ como para el de $Ge$, con los valores obtenidos 
+    de $V_D$ e $I_D$ para los distintos valores de alimentación. También, se presenta una gráfica de las curvas de 
+    características obtenidas para ambos diodos y, fotografías de los instrumentos de medición utilizados y disposición 
+    de los circuitos:
   
     \subsubsection{Diodo de silicio}
     
@@ -297,11 +350,141 @@
     \end{figure}
     
 
-\chapter{Comportamiento del diodo en funcion de la temperatura}
+\chapter{Comportamiento del diodo en función de la temperatura}
+
+  El comportamiento eléctrico de los diodos semiconductores está fuertemente influenciado por la temperatura. Esto se
+  debe a la dependencia de parámetros clave del dispositivo con respecto a la temperatura, como la corriente de saturación 
+  inversa (\(I_S\)) y la tensión umbral de conducción directa.
+  
+  \section{Fundamento teórico}
+  
+    La ecuación característica de un diodo ideal es:
+    
+    \[
+    I_D = I_S \left( e^{\frac{V_D}{n V_T}} - 1 \right)
+    \]
+    
+    donde:
+    \begin{itemize}
+        \item \(I_D\) es la corriente que circula por el diodo,
+        \item \(I_S\) es la corriente de saturación inversa,
+        \item \(V_D\) es la tensión aplicada al diodo,
+        \item \(n\) es el coeficiente de idealidad (típicamente entre 1 y 2),
+        \item \(V_T = \frac{kT}{q}\) es la tensión térmica, que depende linealmente de la temperatura absoluta \(T\), con
+            \(k\) siendo la constante de Boltzmann y \(q\) la carga del electrón.
+    \end{itemize}
+    
+    A medida que la temperatura aumenta:
+    \begin{enumerate}
+        \item El valor de \(V_T\) también aumenta, lo cual afecta la pendiente de la curva \(I\)-\(V\).
+        \item La corriente de saturación inversa \(I_S\) se incrementa exponencialmente con la temperatura, dado que 
+            depende del número de portadores minoritarios generados térmicamente.
+        \item Como consecuencia, la corriente para un mismo voltaje directo es mayor a temperaturas más altas.
+        \item La tensión de umbral para que el diodo comience a conducir disminuye.
+    \end{enumerate}
+  
+  \section{Simulación y análisis}
+  
+    Para observar este efecto, se ha realizado una simulación del diodo 1N3198 sometido a tres temperaturas distintas: 
+    20 °C, 100 °C y 125 °C. El circuito simulado se muestra a continuación:
+    
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.7\textwidth]{pictures/comparacion_temperatura_circuito.jpeg}
+        \caption{Circuito simulado para análisis de comportamiento térmico del diodo.}
+    \end{figure}
+    
+    En la siguiente gráfica se puede observar cómo varía la curva característica corriente-voltaje del diodo en función de
+    la temperatura:
+    
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.7\textwidth]{pictures/comparacion_temperatura_grafico.jpeg}
+        \caption{Curvas I-V del diodo 1N3198 a diferentes temperaturas.}
+    \end{figure}
+    
+    Como se puede apreciar, a mayor temperatura, la curva se desplaza hacia la izquierda, lo que indica que el diodo
+    comienza a conducir a un menor voltaje. Además, para una misma tensión, la corriente que circula por el diodo es
+    considerablemente mayor a temperaturas elevadas. Esta característica es clave en el diseño de circuitos electrónicos, 
+    ya que una mala gestión térmica puede provocar corrientes excesivas no deseadas o incluso la destrucción del componente.
+
 
 \chapter{Circuitos recortadores con diodos zener}
 
-  \section{Actividad de simulación}
+\section{Actividad de simulación}
+
+\subsection*{Circuito a: Regulador de Voltaje con Zener}
+
+\begin{itemize}
+    \item \textbf{Objetivo:} Analizar el comportamiento de un circuito con diodo Zener como regulador de voltaje.
+    \item \textbf{Simulación:} Se varía el voltaje de entrada \( V_{\text{in}} \) y se observa el comportamiento de la tensión de salida \( V_{\text{out}} \).
+\end{itemize}
+
+\subsubsection*{Esquema del circuito}
+\begin{center}
+    \includegraphics[width=0.5\textwidth]{pictures/zener_1_circuito.jpeg}
+\end{center}
+
+\subsubsection*{Análisis del comportamiento}
+
+El diodo Zener se polariza en inversa. Su función principal es mantener la tensión de salida constante mientras el voltaje de entrada sea mayor que su tensión de ruptura \( V_Z \).
+
+\begin{itemize}
+    \item Si \( V_{\text{in}} < V_Z \), el diodo no conduce y \( V_{\text{out}} \approx V_{\text{in}} \).
+    \item Si \( V_{\text{in}} \geq V_Z \), el diodo entra en conducción inversa (zona Zener) y mantiene \( V_{\text{out}} \approx V_Z \).
+\end{itemize}
+
+La corriente que circula por el diodo es:
+
+\[
+I_Z = \frac{V_{\text{in}} - V_Z}{R_s}
+\]
+
+\subsubsection*{Gráfico de simulación}
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{pictures/zener_1_grafico.jpeg}
+\end{center}
+
+\noindent
+El gráfico muestra cómo, a partir de cierta tensión, la salida se estabiliza en \( V_Z \), actuando como un recortador superior.
+
+
+\subsection*{Circuito b: Recortador con Zener de diferente valor}
+
+\begin{itemize}
+    \item \textbf{Objetivo:} Observar el efecto de usar un diodo Zener con distinta tensión de ruptura.
+\end{itemize}
+
+\subsubsection*{Esquema del circuito}
+\begin{center}
+    \includegraphics[width=0.5\textwidth]{pictures/zener_2_circuito.jpeg}
+\end{center}
+
+\subsubsection*{Análisis del comportamiento}
+
+El principio de funcionamiento es el mismo que en el circuito anterior, pero se utiliza un diodo Zener con otra tensión de ruptura. El voltaje de salida se regula al nuevo valor \( V_Z' \).
+
+\[
+V_{\text{out}} =
+\begin{cases}
+    V_{\text{in}} & \text{si } V_{\text{in}} < V_Z' \\
+    V_Z' & \text{si } V_{\text{in}} \geq V_Z'
+\end{cases}
+\]
+
+\subsubsection*{Gráfico de simulación}
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{pictures/zener_2_grafico.jpeg}
+\end{center}
+
+\noindent
+Se observa un comportamiento similar, con la salida limitada a \( V_Z' \), actuando como recortador, pero en este caso con un umbral de corte distinto.
+
+\section*{Conclusión}
+
+Se comprobó que los diodos Zener permiten recortar el voltaje de salida una vez superado su valor de ruptura. Esto es útil para limitar la tensión en circuitos sensibles, estabilizar señales o implementar fuentes de voltaje fijo. Variar el tipo de diodo Zener modifica el umbral de recorte.
+
+
   
   \section{Actividad de laboratortio}
 
