@@ -60,7 +60,7 @@
   \end{table}
   \end{center}
 
-  \subsection{Conclusión}
+  \section{Conclusión}
 
   Se puede observar, que al medir en polarizacion directa, en el par de diodos de cada semiconductor, a pesar de ser el
   mismo modelo de diodo, no tienen la misma tension de barrera. Por otro lado, se comprueba que al medir en polarizacion
@@ -92,7 +92,6 @@
   \vspace{0.5cm}
   
   \caption{Epígrafe general de las dos imágenes.}
-  \label{c}
 \end{figure}
 
 
@@ -113,7 +112,6 @@
   \vspace{0.5cm}
   
   \caption{Epígrafe general de las dos imágenes.}
-  \label{d}
 \end{figure}
 
 
@@ -175,7 +173,6 @@
       \end{tabular}
       }
       \caption{Tabla de valores $V_D$ e $I_D$ para diodo de silicio 1N4007.}
-      \label{a}
       \end{table}
     
     \subsubsection{Diodo de germanio}
@@ -503,33 +500,62 @@ Se comprobó que los diodos Zener permiten recortar el voltaje de salida una vez
     \item Armar los circuitos propuestos, medir y graficar las señales de salida.
     \item Sacar las conclusiones de cada circuito.
 \end{itemize}
+    
+    Para esta parte del trabajo practico se utilizaron los siguientes instrumentos:
 
-    Para realizar las mediciones con el osciloscopio se utilizo una escala de tennsion de $5\V/div$ y una escala
-    temporal de $2\text{ms}/div$
-
-\subsection*{Circuito a)}
-
-\begin{itemize}
-    \item \textbf{Cálculo de resistencia:} 
-    \[
-    R = \frac{V_{\text{in}} - V_Z}{I_Z + I_L}
-    \]
-    Donde:
-    \begin{itemize}
-        \item \( V_{\text{in}} = 24\,\text{V}_{\text{rms}} \)
-        \item \( V_Z = 5{,}1\,\text{V} \) (Zener superior) y \( 20\,\text{V} \) (Zener inferior)
-    \end{itemize}
-\end{itemize}
-
-\begin{figure}[H]
+    \begin{figure}[H]
     \centering
     \begin{minipage}{0.45\textwidth}
     \centering
+    \includegraphics[width=\textwidth]{pictures/osciloscopio_utilizado_zener.jpeg}
+    \caption{Numero de identificacion: O-117.}
+    \end{minipage}
+    \hspace{0.05\textwidth}
+    \begin{minipage}{0.4\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{pictures/fuente_alterna_utilizada.jpeg}
+    \caption{Numero de identificacion: VT-100.}
+    \end{minipage}
+    \end{figure}
+
+    Luego se comprobo que la tension de la fuente fuera de $24 V_{ac}$.
+    
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.5\textwidth]{pictures/tension_fuente_alterna.jpeg}
+        \caption{Tension medida con un multimetro True RMS UNI-T UT61D+.}
+    \end{figure}
+
+    Para realizar las mediciones con el osciloscopio se utilizo una escala de tennsion de $5\V/div$ y una escala
+    temporal de $2\text{ms}/div$.
+
+ 
+    \begin{figure}[H]
+        \centering
+ \begin{minipage}{0.46\textwidth}
+    \centering
+        \includegraphics[width=\textwidth]{pictures/Esquematico_circuito_a.png}
+        \caption{Esquematico del circuito A.}
+    \end{minipage}
+\hspace{0.05\textwidth}
+\begin{minipage}{0.46\textwidth}
+    \centering
+        \includegraphics[width=\textwidth]{pictures/Esquematico_circuito_B.png}
+        \caption{Esquematico del circuito A.}
+    \end{minipage}
+    \end{figure}
+
+\subsection*{Circuito a)}
+\begin{figure}[H]
+    \centering
+    \begin{minipage}{0.46\textwidth}
+    \centering
     \includegraphics[width=\textwidth]{pictures/circuito_A.jpeg}
     \caption{Montaje en protoboard del circuito a).}
+    En la foto, El diodo superior es el zener de $5.1\V$ y el diodo inferior es el zener de $20\V$.
 \end{minipage}
 \hspace{0.05\textwidth}
-    \begin{minipage}{0.4\textwidth}
+    \begin{minipage}{0.46\textwidth}
     \centering
     \includegraphics[width=\textwidth]{pictures/circuito_A_osciloscopio.jpeg}
     \caption{Señal de salida medida del circuito a).}
@@ -539,20 +565,17 @@ Se comprobó que los diodos Zener permiten recortar el voltaje de salida una vez
 
 \subsection*{Circuito b)}
 
-\begin{itemize}
-    \item \textbf{Cálculo de resistencia:} 
-    \item \( V_Z = 6{,}8\,\text{V} \) (superior) y \( 12\,\text{V} \) (inferior)
-\end{itemize}
 
 \begin{figure}[H]
     \centering
-    \begin{minipage}{0.45\textwidth}
+    \begin{minipage}{0.46\textwidth}
     \centering
     \includegraphics[width=\textwidth]{pictures/circuito_B.jpeg}
     \caption{Montaje en protoboard del circuito b).}
+    En la foto, El diodo superior es el zener de $6.8\V$ y el diodo inferior es el zener de $12\V$.
 \end{minipage}
 \hspace{0.05\textwidth}
-    \begin{minipage}{0.4\textwidth}
+    \begin{minipage}{0.46\textwidth}
     \centering
     \includegraphics[width=\textwidth]{pictures/circuito_B_osciloscopio.jpeg}
     \caption{Señal de salida medida del circuito b).}
