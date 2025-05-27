@@ -71,51 +71,325 @@
 
 
 \chapter{Curva caracteristica del diodo}
-
+    Los diodos son dispositivos semiconductores que permiten el paso de corriente en un único sentido. Su comportamiento se representa 
+    gráficamente mediante la curva característica corriente–tensión (I-V), que muestra la relación entre la tensión aplicada y la 
+    corriente que circula a través del diodo. En esta sección, se analiza este comportamiento tanto en diodos de silicio como de 
+    germanio, enfocándonos en el punto de transición entre el estado de bloqueo (cuando el diodo no conduce) y el de conducción (cuando 
+    permite el paso de corriente), conocido como tensión umbral. Para ello, se realizarán simulaciones y luego mediciones prácticas en el 
+    laboratorio que permitirán comparar el desempeño real con los valores típicos indicados por los fabricantes.
+    
   \section{Actividad de simulación}
-  
- 
-\begin{figure}[h]
-  \centering
-  \begin{minipage}{0.45\textwidth}
-    \centering
-    \includegraphics[width=\linewidth]{pictures/curva_diodo_silicio_circuito.jpeg}
-    \captionof{figure}{Epígrafe de la primera foto.}
-  \end{minipage}
-  \hfill
-  \begin{minipage}{0.45\textwidth}
-    \centering
-    \includegraphics[width=\linewidth]{pictures/curva_diodo_silicio_grafico.jpeg}
-    \captionof{figure}{Epígrafe de la segunda foto.}
-  \end{minipage}
+    Se realizará esta actividad con el objetivo de observar en la plataforma de simulación LTspice la curva de los modelos de diodos que 
+    utilizaremos para realizar ensayos en el laboratorio. A continuación, se presenta los circuitos implementados y las respectivas 
+    gráficas obtenidas de la simulación. 
 
-  \vspace{0.5cm}
-  
-  \caption{Epígrafe general de las dos imágenes.}
-\end{figure}
+    \subsection{Polarización directa}
+    \begin{figure}[H]
+      \centering
+      \begin{minipage}{0.45\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{pictures/curva_diodo_silicio_circuito.jpeg}
+        \captionof{figure}{Circuito básico del diodo de silicio 1N4007 en polarización directa.}
+      \end{minipage}
+      \hfill
+      \begin{minipage}{0.45\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{pictures/curva_diodo_silicio_grafico.jpeg}
+        \captionof{figure}{Gráfica $I_D$ vs $V_D$ obtenida de la simulación.}
+      \end{minipage}
+      \vspace{0.5cm}
+      \label{c}
+    \end{figure}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=\linewidth]{pictures/curva_diodo_germanio_circuito.jpeg}
+        \caption{Circuito básico del diodo de germanio 1N60 en polarización directa.}
+    \end{figure}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.5\linewidth]{pictures/curva_diodo_germanio_grafico.jpeg}
+        \caption{Gráfica $I_D$ vs $V_D$ obtenida de la simulación.}
 
+    \end{figure}
 
-\begin{figure}[h]
-  \centering
-  \begin{minipage}{0.45\textwidth}
-    \centering
-    \includegraphics[width=\linewidth]{pictures/curva_diodo_germanio_circuito.jpeg}
-    \captionof{figure}{Epígrafe de la primera foto.}
-  \end{minipage}
-  \hfill
-  \begin{minipage}{0.45\textwidth}
-    \centering
-    \includegraphics[width=\linewidth]{pictures/curva_diodo_germanio_grafico.jpeg}
-    \captionof{figure}{Epígrafe de la segunda foto.}
-  \end{minipage}
+    Ambas simulaciones se han configurado de modo que se haga un barrido la fuente desde -2V a 10V, con un paso de 100mV 
+    por cada punto a simular.
 
-  \vspace{0.5cm}
-  
-  \caption{Epígrafe general de las dos imágenes.}
-\end{figure}
+    A continuación, se muestra una gráfica con las dos curvas de los diodos, a modo de comparación:
 
+    \begin{figure}[H]
+        \centering
+        \begin{tikzpicture}
+        \begin{axis}[
+            xlabel={$V_D$},
+            ylabel={$I_D$},
+            axis lines = left,
+            axis y line=middle,
+            width=15cm,
+            height=8cm,
+            ymin=0, ymax=0.01,
+            xmin=0, xmax=0.8,
+        ]
+        \addplot coordinates {
+            (-9.999999e-01, -9.099665e-11)
+            (-8.999999e-01, -9.089673e-11)
+            (-7.999999e-01, -9.079681e-11)
+            (-6.999999e-01, -9.069689e-11)
+            (-5.999999e-01, -9.060253e-11)
+            (-4.999999e-01, -9.049983e-11)
+            (-3.999999e-01, -9.039852e-11)
+            (-2.999999e-01, -9.027779e-11)
+            (-1.999999e-01, -8.984063e-11)
+            (-9.999991e-02, -8.441338e-11)
+            (2.141297e-19, -2.141297e-22)
+            (9.999867e-02, 1.334306e-09)
+            (1.999776e-01, 2.243526e-08)
+            (2.996469e-01, 3.531179e-07)
+            (3.950736e-01, 4.926428e-06)
+            (4.655261e-01, 3.447394e-05)
+            (5.030010e-01, 9.699905e-05)
+            (5.245518e-01, 1.754482e-04)
+            (5.388615e-01, 2.611385e-04)
+            (5.496788e-01, 3.503212e-04)
+            (5.580088e-01, 4.419912e-04)
+            (5.648770e-01, 5.351230e-04)
+            (5.707332e-01, 6.292668e-04)
+            (5.758181e-01, 7.241819e-04)
+            (5.803047e-01, 8.196952e-04)
+            (5.843167e-01, 9.156833e-04)
+            (5.879430e-01, 1.012057e-03)
+            (5.912504e-01, 1.108750e-03)
+            (5.942897e-01, 1.205710e-03)
+            (5.971005e-01, 1.302900e-03)
+            (5.997144e-01, 1.400286e-03)
+            (6.021570e-01, 1.497843e-03)
+            (6.044491e-01, 1.595551e-03)
+            (6.066080e-01, 1.693392e-03)
+            (6.086482e-01, 1.791352e-03)
+            (6.105821e-01, 1.889418e-03)
+            (6.124201e-01, 1.987580e-03)
+            (6.141711e-01, 2.085829e-03)
+            (6.158430e-01, 2.184157e-03)
+            (6.174426e-01, 2.282557e-03)
+            (6.189759e-01, 2.381024e-03)
+            (6.204481e-01, 2.479552e-03)
+            (6.218638e-01, 2.578136e-03)
+            (6.232273e-01, 2.676773e-03)
+            (6.245422e-01, 2.775458e-03)
+            (6.258119e-01, 2.874188e-03)
+            (6.270394e-01, 2.972961e-03)
+            (6.282273e-01, 3.071773e-03)
+            (6.293781e-01, 3.170622e-03)
+            (6.304942e-01, 3.269506e-03)
+            (6.315774e-01, 3.368423e-03)
+            (6.326298e-01, 3.467370e-03)
+            (6.336529e-01, 3.566347e-03)
+            (6.346484e-01, 3.665352e-03)
+            (6.356177e-01, 3.764382e-03)
+            (6.365622e-01, 3.863438e-03)
+            (6.374831e-01, 3.962517e-03)
+            (6.383815e-01, 4.061618e-03)
+            (6.392586e-01, 4.160741e-03)
+            (6.401153e-01, 4.259885e-03)
+            (6.409525e-01, 4.359047e-03)
+            (6.417712e-01, 4.458229e-03)
+            (6.425720e-01, 4.557428e-03)
+            (6.433558e-01, 4.656644e-03)
+            (6.441234e-01, 4.755876e-03)
+            (6.448752e-01, 4.855125e-03)
+            (6.456121e-01, 4.954388e-03)
+            (6.463345e-01, 5.053665e-03)
+            (6.470430e-01, 5.152957e-03)
+            (6.477382e-01, 5.252262e-03)
+            (6.484205e-01, 5.351579e-03)
+            (6.490904e-01, 5.450909e-03)
+            (6.497484e-01, 5.550252e-03)
+            (6.503948e-01, 5.649605e-03)
+            (6.510301e-01, 5.748970e-03)
+            (6.516547e-01, 5.848345e-03)
+            (6.522689e-01, 5.947731e-03)
+            (6.528730e-01, 6.047127e-03)
+            (6.534674e-01, 6.146532e-03)
+            (6.540523e-01, 6.245947e-03)
+            (6.546282e-01, 6.345372e-03)
+            (6.551952e-01, 6.444805e-03)
+            (6.557536e-01, 6.544246e-03)
+            (6.563038e-01, 6.643696e-03)
+            (6.568458e-01, 6.743154e-03)
+            (6.573800e-01, 6.842620e-03)
+            (6.579066e-01, 6.942093e-03)
+            (6.584258e-01, 7.041574e-03)
+            (6.589378e-01, 7.141062e-03)
+            (6.594428e-01, 7.240557e-03)
+            (6.599411e-01, 7.340059e-03)
+            (6.604326e-01, 7.439567e-03)
+            (6.609178e-01, 7.539082e-03)
+            (6.613967e-01, 7.638603e-03)
+            (6.618694e-01, 7.738131e-03)
+            (6.623362e-01, 7.837663e-03)
+            (6.627972e-01, 7.937203e-03)
+            (6.632525e-01, 8.036748e-03)
+            (6.637022e-01, 8.136298e-03)
+            (6.641466e-01, 8.235853e-03)
+            (6.645857e-01, 8.335414e-03)
+            (6.650196e-01, 8.434980e-03)
+            (6.654485e-01, 8.534552e-03)
+            (6.658726e-01, 8.634128e-03)
+            (6.662918e-01, 8.733708e-03)
+            (6.667064e-01, 8.833294e-03)
+            (6.671163e-01, 8.932884e-03)
+            (6.675218e-01, 9.032479e-03)
+            (6.679229e-01, 9.132077e-03)
+            (6.683197e-01, 9.231680e-03)
+            (6.687123e-01, 9.331288e-03)
+        };
+        \addplot coordinates {
+            (-1.998622e+00, -1.377732e-06)
+            (-1.898622e+00, -1.377732e-06)
+            (-1.798622e+00, -1.377732e-06)
+            (-1.698622e+00, -1.377732e-06)
+            (-1.598622e+00, -1.377732e-06)
+            (-1.498622e+00, -1.377731e-06)
+            (-1.398622e+00, -1.377731e-06)
+            (-1.298622e+00, -1.377731e-06)
+            (-1.198622e+00, -1.377731e-06)
+            (-1.098622e+00, -1.377731e-06)
+            (-9.986223e-01, -1.377731e-06)
+            (-8.986223e-01, -1.377731e-06)
+            (-7.986223e-01, -1.377731e-06)
+            (-6.986223e-01, -1.377729e-06)
+            (-5.986223e-01, -1.377718e-06)
+            (-4.986224e-01, -1.377641e-06)
+            (-3.986229e-01, -1.377109e-06)
+            (-2.986266e-01, -1.373438e-06)
+            (-1.986519e-01, -1.348084e-06)
+            (-9.882643e-02, -1.173573e-06)
+            (2.152422e-14, -2.152422e-17)
+            (9.310054e-02, 6.899460e-06)
+            (1.674261e-01, 3.257387e-05)
+            (2.170099e-01, 8.299015e-05)
+            (2.504628e-01, 1.495372e-04)
+            (2.751413e-01, 2.248587e-04)
+            (2.950752e-01, 3.049248e-04)
+            (3.115954e-01, 3.884046e-04)
+            (3.260566e-01, 4.739434e-04)
+            (3.390792e-01, 5.609208e-04)
+            (3.510056e-01, 6.489944e-04)
+            (3.620810e-01, 7.379189e-04)
+            (3.724809e-01, 8.275192e-04)
+            (3.823322e-01, 9.176678e-04)
+            (3.917301e-01, 1.008270e-03)
+            (4.007470e-01, 1.099253e-03)
+            (4.094398e-01, 1.190560e-03)
+            (4.178534e-01, 1.282147e-03)
+            (4.260244e-01, 1.373976e-03)
+            (4.339825e-01, 1.466017e-03)
+            (4.417523e-01, 1.558248e-03)
+            (4.493546e-01, 1.650645e-03)
+            (4.568068e-01, 1.743193e-03)
+            (4.641238e-01, 1.835876e-03)
+            (4.713184e-01, 1.928682e-03)
+            (4.784017e-01, 2.021598e-03)
+            (4.853833e-01, 2.114617e-03)
+            (4.922718e-01, 2.207728e-03)
+            (4.990744e-01, 2.300926e-03)
+            (5.057979e-01, 2.394202e-03)
+            (5.124481e-01, 2.487552e-03)
+            (5.190303e-01, 2.580970e-03)
+            (5.255491e-01, 2.674451e-03)
+            (5.320088e-01, 2.767991e-03)
+            (5.384132e-01, 2.861587e-03)
+            (5.447658e-01, 2.955234e-03)
+            (5.510697e-01, 3.048930e-03)
+            (5.573279e-01, 3.142672e-03)
+            (5.635428e-01, 3.236457e-03)
+            (5.697171e-01, 3.330283e-03)
+            (5.758528e-01, 3.424147e-03)
+            (5.819520e-01, 3.518048e-03)
+            (5.880166e-01, 3.611983e-03)
+            (5.940484e-01, 3.705952e-03)
+            (6.000489e-01, 3.799951e-03)
+            (6.060196e-01, 3.893980e-03)
+            (6.119620e-01, 3.988038e-03)
+            (6.178773e-01, 4.082123e-03)
+            (6.237668e-01, 4.176233e-03)
+            (6.296315e-01, 4.270369e-03)
+            (6.354725e-01, 4.364527e-03)
+            (6.412910e-01, 4.458709e-03)
+            (6.470876e-01, 4.552912e-03)
+            (6.528634e-01, 4.647137e-03)
+            (6.586192e-01, 4.741381e-03)
+            (6.643557e-01, 4.835644e-03)
+            (6.700737e-01, 4.929926e-03)
+            (6.757738e-01, 5.024226e-03)
+            (6.814567e-01, 5.118543e-03)
+            (6.871232e-01, 5.212877e-03)
+            (6.927736e-01, 5.307226e-03)
+            (6.984085e-01, 5.401591e-03)
+            (7.040287e-01, 5.495972e-03)
+            (7.096344e-01, 5.590366e-03)
+            (7.152261e-01, 5.684774e-03)
+            (7.208045e-01, 5.779196e-03)
+            (7.263697e-01, 5.873630e-03)
+            (7.319224e-01, 5.968078e-03)
+            (7.374628e-01, 6.062537e-03)
+            (7.429913e-01, 6.157008e-03)
+            (7.485084e-01, 6.251492e-03)
+            (7.540143e-01, 6.345986e-03)
+            (7.595093e-01, 6.440490e-03)
+            (7.649938e-01, 6.535006e-03)
+            (7.704682e-01, 6.629532e-03)
+            (7.759326e-01, 6.724067e-03)
+            (7.813872e-01, 6.818613e-03)
+            (7.868325e-01, 6.913167e-03)
+            (7.922687e-01, 7.007731e-03)
+            (7.976959e-01, 7.102304e-03)
+        };
+        \end{axis}
+        \end{tikzpicture}
+        \caption{\footnotesize
+        Gráfica con las curvas $I_D$ vs $V_D$ (simulación) de los diodos de Silicio y Germanio.}
+        \end{figure}
 
-\newpage
+    \subsection{Polarización inversa}
+    
+    \begin{figure}[H]
+      \centering
+      \begin{minipage}{0.45\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{pictures/circuito_diodo_silicio_inversa.jpeg}
+        \captionof{figure}{Circuito básico del diodo de silicio 1N4007 en polarización inversa.}
+      \end{minipage}
+      \hfill
+      \begin{minipage}{0.45\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{pictures/curva_diodo_silicio_inversa.jpeg}
+        \captionof{figure}{Gráfica $I_D$ vs $V_D$ obtenida de la simulación.}
+      \end{minipage}
+    \end{figure}
+
+    \begin{figure}[H]
+      \centering
+      \begin{minipage}{1\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{pictures/circuito_diodo_germanio_inversa.jpeg}
+        \captionof{figure}{Circuito básico del diodo de germanio 1N60 en polarización inversa.}
+      \end{minipage}
+      \hfill
+      \begin{minipage}{0.45\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{pictures/curva_diodo_germanio_inversa.jpeg}
+        \captionof{figure}{Gráfica $I_D$ vs $V_D$ obtenida de la simulación.}
+      \end{minipage}
+    \end{figure}
+
+    \subsection{Conclusión}
+    Podemos concluir que la simulación es una herramienta muy útil, que sirve para observar el comportamiento de un dispositivo 
+    electrónico y sacar ciertas conclusiones del mismo antes de implementarlo en el laboratorio o en un proyecto. Sin embargo, 
+    es importante seleccionar modelos fieles en los circuitos implementados para simular. Por ejemplo, pudimos observar que el 
+    modelo del diodo de germanio utilizado para la simulación presenta mucha variación de tensión a medida que aumenta la 
+    corriente, lo cual suponemos que no es del todo correcto. Por otro lado, tuvimos resultados satisfactorios en la simulación 
+    de los diodos polarizados en inversa. 
 
   \section{Actividad de laboratortio}
     En las clases teóricas se ha visto que el diodo no tiene un comportamiento lineal. Pudimos observar su 
@@ -173,6 +447,7 @@
       \end{tabular}
       }
       \caption{Tabla de valores $V_D$ e $I_D$ para diodo de silicio 1N4007.}
+      \label{a}
       \end{table}
     
     \subsubsection{Diodo de germanio}
@@ -310,7 +585,7 @@
         \includegraphics[width=.35\textwidth]{pictures/disposicion-elementos.jpeg}
         \caption{Fotografía general de los elementos utilizados para los ensayos.}
       \end{figure}
-      \begin{figure}[h!]
+      \begin{figure}[H]
         \centering
         \begin{minipage}{0.40\textwidth}
             \centering
@@ -326,7 +601,7 @@
             \label{fig:germanio}
         \end{minipage}
     \end{figure}
-    \begin{figure}[h!]
+    \begin{figure}[H]
         \centering
         \begin{minipage}{0.3\textwidth}
             \centering
@@ -340,7 +615,7 @@
             \caption{Instrumentos: multimétro digital Nº1, proporcionado por el laboratorio.}
         \end{minipage}
     \end{figure}
-    \begin{figure}[h!]
+    \begin{figure}[H]
         \centering
         \begin{minipage}{0.3\textwidth}
             \centering
@@ -354,6 +629,9 @@
             \caption{Instrumentos: multimétro digital Nº3.}
         \end{minipage}
     \end{figure}
+
+    \subsection{Conclusión}
+        Podemos concluir que las mediciones obtenidas en los correspondientes ensayos realizados en el laboratorio son los esperados. Estimamos ciertas desviaciones a causa de posibles errores de medición inherentes a los instrumentos utilizados y al factor humano. A pesar de ello, los resultados fueron satisfactorios y nos fue de gran utilidad para comprender el comportamiento de los diodos, y para desarrollar habilidades prácticas que nos serán útiles para futuros trabajos prácticos. 
     
 
 \chapter{Comportamiento del diodo en función de la temperatura}
@@ -405,7 +683,7 @@
     
     \begin{figure}[H]
         \centering
-        \includegraphics[width=0.7\textwidth]{pictures/comparacion_temperatura_grafico.jpeg}
+        \includegraphics[width=0.6\textwidth]{pictures/comparacion_temperatura_grafico.jpeg}
         \caption{Curvas I-V del diodo 1N3198 a diferentes temperaturas.}
     \end{figure}
     
@@ -565,7 +843,6 @@ Se comprobó que los diodos Zener permiten recortar el voltaje de salida una vez
 
 \subsection*{Circuito b)}
 
-
 \begin{figure}[H]
     \centering
     \begin{minipage}{0.46\textwidth}
@@ -628,6 +905,4 @@ Se comprobó que los diodos Zener permiten recortar el voltaje de salida una vez
         \item $P_{tot}$: Potencia total disipada. Es la máxima potencia que el dispositivo puede disipar sin exceder los límites térmicos.
         \item $T_r$: Tiempo de recuperación. Es el tiempo que tarda el dispositivo en dejar de conducir una vez que se retira la señal de conducción.
     \end{enumerate}
-
-\chapter{Conclusión final}
 \end{document}
