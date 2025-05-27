@@ -48,15 +48,24 @@
   \cline{2-5}
   & D1 & D2 & D1 & D2 \\
   \hline
-  \includegraphics[width=3.5cm]{pictures/polaridad_multimetro1.png} &  &  &  &  \\
+  \includegraphics[width=3.5cm]{pictures/polaridad_multimetro1.png} & 
+    \includegraphics[width=\linewidth]{pictures/multimetro_silicio_directa.jpeg}
+  & $0.592\V$ & $0.289\V$ & $0.293\V$  \\
   \hline
-  \includegraphics[width=3.5cm]{pictures/polaridad_multimetro2.png} &  &  &  &  \\
+  \includegraphics[width=3.5cm]{pictures/polaridad_multimetro2.png} & \includegraphics[width=\linewidth]{pictures/multimetro_silicio_inversa.jpeg}
+  & Over limit & Over limit & Over limit  \\
   \hline
   \end{tabular}
   \caption{Resultados de las mediciones con el multimetro en modo diodo}
   \end{table}
   \end{center}
 
+  \subsection{Conclusión}
+
+  Se puede observar, que al medir en polarizacion directa, en el par de diodos de cada semiconductor, a pesar de ser el
+  mismo modelo de diodo, no tienen la misma tension de barrera. Por otro lado, se comprueba que al medir en polarizacion
+  inversa, la tension de barrera incrementa tanto que la herramienta simplemente no puede suministrar suficiente, por
+  lo que marca "ol" lo cual significa "Over limit" o "por encima del limite" en español.
 
 
 
@@ -494,6 +503,9 @@ Se comprobó que los diodos Zener permiten recortar el voltaje de salida una vez
     \item Armar los circuitos propuestos, medir y graficar las señales de salida.
     \item Sacar las conclusiones de cada circuito.
 \end{itemize}
+
+    Para realizar las mediciones con el osciloscopio se utilizo una escala de tennsion de $5\V/div$ y una escala
+    temporal de $2\text{ms}/div$
 
 \subsection*{Circuito a)}
 
