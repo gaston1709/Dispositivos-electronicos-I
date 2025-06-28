@@ -7,6 +7,9 @@
 \usepackage{colortbl}
 \usepackage{caption}
 \usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{multirow}
+\usepackage{float}
 
 \materia{Dispositivos Electronicos I}
 \titulo{Trabajo Practico N°3: BJT}
@@ -140,25 +143,237 @@
 
 
 \chapter{Curvas características}
-\section{Actividad de simulación}
-    \begin{figure}[H]
-        \centering
-        \includegraphics[width=1\textwidth, keepaspectratio]{pictures/circuito-simulacion-salida.png}
-        \caption{Circuito emisor-común con fuentes variables para observar curva característica del transistor simulado en LTSpice}
-        \label{fig:circuito-simulacion-salida}
-    \end{figure}
+  \section{Actividad de simulación}
+      \begin{figure}[H]
+          \centering
+          \includegraphics[width=1\textwidth, keepaspectratio]{pictures/circuito-simulacion-salida.png}
+          \caption{Circuito emisor-común con fuentes variables para observar curva característica del transistor simulado en LTSpice}
+          \label{fig:circuito-simulacion-salida}
+      \end{figure}
+  
+      \begin{figure}[H]
+          \centering
+          \includegraphics[width=1\textwidth, keepaspectratio]{pictures/curva-simulacion-salida.png}
+          \caption{$I_C$ en función de $V_{CE}$ resultado de simulación 
+          ~\ref{fig:circuito-simulacion-salida}}
+      \end{figure}
 
+    
+
+  \section{Actividad de laboratorio}
+    
+    \begin{table}[H]
+    \centering
+    \caption{Valores de $I_C$ y $V_{CE}$ medidos para distintos valores de $I_B$ y $V_{CC}$.}
+    \resizebox{\textwidth}{!}{%
+    \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
+      \hline
+      \multirow{2}{*}{$V_{CC}$ [V]} & 
+      \multicolumn{2}{|c|}{$I_B=0\,\text{A}$} & 
+      \multicolumn{2}{|c|}{$I_B=10\,\mu\text{A}$} & 
+      \multicolumn{2}{|c|}{$I_B=15\,\mu\text{A}$} & 
+      \multicolumn{2}{|c|}{$I_B=20\,\mu\text{A}$} & 
+      \multicolumn{2}{|c|}{$I_B=25\,\mu\text{A}$} \\
+      \cline{2-11}
+       & $I_C$ & $V_{CE}$ & $I_C$ & $V_{CE}$ & $I_C$ & $V_{CE}$ & $I_C$ & $V_{CE}$ & $I_C$ & $V_{CE}$ \\
+      \hline
+      0    &  0 A  &  0 V      &  0 A        &  0 V     &  0 A       &  0 V      &  0 A      &  0 V     &  0 A       &   0 V    \\
+      0.25 &  0  A &  0.24 V   &  312.5 uA   &  0.06 V  &  325 uA    &  0.05 V   &  332 uA   &  0.05 V  &  333 uA    &   0.04 V \\
+      0.5  &  0  A &  0.48 V   &  701.7 uA   &  0.09 V  &  737 uA    &  0.08 V   &  725 uA   &  0.07 V  &  764 uA    &   0.06 V \\
+      1    &  0  A &  0.99 V   &  1.564 mA   &  0.12 V  &  1.58 mA   &  0.11 V   &  1.64 mA  &  0.1 V   &  1.7 mA    &   0.09 V \\
+      2    &  0  a &  2 V      &  3.125 mA   &  0.21 V  &  3.32 mA   &  0.15 V   &  3.36 mA  &  0.13 V  &  3.37 mA   &   0.12 V \\
+      5    &  0  A &  5 V      &  2.84 mA    &  3.41 V  &  4.04 mA   &  2.67 V   &  5.49 mA  &  1.96 V  &  7.9 mA    &   0.51 V \\
+      10   &  0  A &  9.97 V   &  2.97 mA    &  8.32 V  &  4.37 mA   &  7.53 V   &  5.85 mA  &  6.58 V  &  8.43 mA   &   5.23 V \\
+      \hline
+    \end{tabular}
+    }
+    \end{table}
+    
+    
     \begin{figure}[H]
-        \centering
-        \includegraphics[width=1\textwidth, keepaspectratio]{pictures/curva-simulacion-salida.png}
-        \caption{$I_C$ en función de $V_{CE}$ resultado de simulación 
-        ~\ref{fig:circuito-simulacion-salida}}
+    \centering
+    \begin{tikzpicture}
+    \begin{axis}[
+        width=\textwidth,
+        height=8cm,
+        xlabel={$V_{CE}$ [V]},
+        ylabel={$I_C$ [mA]},
+        grid=both,
+        xmin=0, xmax=11, % <-- extendido para que entre todo
+        legend style={at={(0.5,-0.25)}, anchor=north, legend columns=3},
+        title={Curvas de salida del transistor BC547}
+    ]
+    
+    \addplot+[mark=*, thick, blue] coordinates {
+      (0,0) (0.24,0) (0.48,0) (0.99,0) (2,0) (5,0) (9.97,0)
+    };
+    \addlegendentry{$I_B = 0\,\mu$A}
+    
+    \addplot+[mark=*, thick, red] coordinates {
+      (0,0) (0.06,0.3125) (0.09,0.7017) (0.12,1.564) (0.21,3.125) (3.41,2.84) (8.32,2.97)
+    };
+    \addlegendentry{$I_B = 10\,\mu$A}
+    
+    \addplot+[mark=*, thick, brown] coordinates {
+      (0,0) (0.05,0.325) (0.08,0.737) (0.11,1.58) (0.15,3.32) (2.67,4.04) (7.53,4.37)
+    };
+    \addlegendentry{$I_B = 15\,\mu$A}
+    
+    \addplot+[mark=*, thick, black] coordinates {
+      (0,0) (0.05,0.332) (0.07,0.725) (0.10,1.64) (0.13,3.36) (1.96,5.49) (6.58,5.85)
+    };
+    \addlegendentry{$I_B = 20\,\mu$A}
+    
+    \addplot+[mark=*, thick, blue!60!black] coordinates {
+      (0,0) (0.04,0.333) (0.06,0.764) (0.09,1.7) (0.12,3.37) (0.51,7.9) (5.23,8.43)
+    };
+    \addlegendentry{$I_B = 25\,\mu$A}
+    
+    \end{axis}
+    \end{tikzpicture}
+    \caption{Curvas de salida del BC547 para distintas $I_B$}
     \end{figure}
 
 
 \chapter{Caracteristicas de transferencia de corriente}
 
+  \section{Actividad de laboratorio}
+    \begin{table}[H]
+      \centering
+      \begin{tabular}{|c|c|c|c|}
+        \hline
+        $I_B$ [$\mu$A] & $I_C$ (@$V_{CE\text{(inicial)}}$ = 2 V) & $I_C$ (@$V_{CE\text{(inicial)}}$ = 5 V) & $I_C$ (@$V_{CE\text{(inicial)}}$ = 8 V) \\
+        \hline
+        5  & 1.66 mA & 1.85 mA & 2.46 mA \\
+        7  & 2.17 mA & 2.44 mA & 2.5 mA  \\
+        10 & 3.14 mA & 3.5 mA  & 3.6 mA  \\
+        20 & 6.53 mA & 6.98 mA & 7.4 mA  \\
+        \hline
+      \end{tabular}
+      \caption{Ejemplo de la tabla a confeccionar}
+    \end{table}
+
+
+    \begin{figure}[H]
+      \centering
+      \begin{tikzpicture}
+      \begin{axis}[
+          width=\textwidth,
+          height=8cm,
+          xlabel={$I_B$ [$\mu$A]},
+          ylabel={$I_C$ [mA]},
+          grid=both,
+          legend style={at={(0.5,-0.2)}, anchor=north, legend columns=3},
+          title={$I_C$ en función de $I_B$ para distintos $V_{CE(\text{inicial})}$}
+      ]
+      
+      \addplot+[mark=*, thick, orange] coordinates {
+        (5,1.66) (7,2.17) (10,3.14) (20,6.53)
+      };
+      \addlegendentry{$V_{CE(\text{inicial})} = 2\,V$}
+      
+      \addplot+[mark=*, thick, red] coordinates {
+        (5,1.85) (7,2.44) (10,3.5) (20,6.98)
+      };
+      \addlegendentry{$V_{CE(\text{inicial})} = 5\,V$}
+      
+      \addplot+[mark=*, thick, magenta] coordinates {
+        (5,2.46) (7,2.5) (10,3.6) (20,7.4)
+      };
+      \addlegendentry{$V_{CE(\text{inicial})} = 8\,V$}
+      
+      \end{axis}
+      \end{tikzpicture}
+      \caption{Curvas $I_C$ en función de $I_B$ para distintos $V_{CE(\text{inicial})}$}
+    \end{figure}
+
+    \begin{table}[H]
+      \centering
+      \begin{tabular}{|c|c|c|c|c|}
+      \hline
+      $V_{CE(\text{inicial})}$ & $\beta$ @ $I_B=5\,\mu$A & $I_B=7\,\mu$A & $I_B=10\,\mu$A & $I_B=20\,\mu$A \\
+      \hline
+      2 V  & 332   & 310    & 314   & 326.5 \\
+      5 V  & 370   & 348.6  & 350   & 349   \\
+      8 V  & 492   & 357.1  & 360   & 370   \\
+      \hline
+      \end{tabular}
+      \caption{Valores de $\beta = \frac{I_C}{I_B}$ para distintos $V_{CE(\text{inicial})}$}
+    \end{table}
+
 \chapter{Interpretacion de las especificaciones del fabricante}
+
+\section{Significado de cada parametro del datasheet}
+
+
+\subsubsection{Características eléctricas a $25^\circ$C }
+
+\begin{tabular}{p{7cm} p{7cm}}
+    $V_{(BR)CEO}$ : Tensión de ruptura colector-emisor con base abierta. Es el voltaje máximo que puede haber entre colector y emisor cuando la base está abierta, sin que el transistor se dañe. &
+    $h_{FE}$ : Ganancia de corriente en continua. También conocido como $\beta$, es la relación entre la corriente de colector y la de base ($I_C/I_B$). \\
+    
+    $I_{CEO}$ : Corriente de fuga colector-emisor con base abierta. Es una corriente no deseada que circula aunque no se esté polarizando el transistor. &
+    $h_{fe}$ : Igual que $h_{FE}$ pero en pequeña señal. \\
+    
+    $I_{CES}$ : Corriente de fuga colector-emisor con base en corto a emisor. También es una corriente de fuga, pero ahora con la base conectada a emisor. &
+    $V_{BE}$ : Tensión base-emisor directa. Es el voltaje que hay que aplicar entre base y emisor para que el transistor conduzca (usualmente $\sim$0.6–0.7V en BJT de silicio). \\
+    
+    $I_C$ : Corriente máxima de colector. Es la corriente máxima que el transistor puede manejar por el colector sin dañarse. &
+    $V_{CE(\text{sat})}$ : Tensión de saturación colector-emisor. Es el voltaje que queda entre colector y emisor cuando el transistor está completamente saturado. \\
+    
+    $I_{EBO}$ : Corriente de fuga emisor-base con colector abierto. Otra corriente de fuga, esta vez desde emisor hacia base. &
+    $P_d$ : Potencia disipada máxima. Es la cantidad de potencia que el transistor puede disipar en forma de calor sin dañarse. \\
+\end{tabular}
+
+\vspace{1em}
+\subsubsection{Características térmicas}
+
+\begin{tabular}{p{14cm}}
+    $\theta_{jc}$ : Resistencia térmica unión-colector. Cuánto se eleva la temperatura de la unión por cada watt que se disipa hacia el colector. (°C/W) \\
+    $\theta_{ja}$ : Resistencia térmica unión-ambiente. Qué tan eficiente es el transistor para disipar calor al aire sin disipador. (°C/W) \\
+\end{tabular}
+
+\vspace{1em}
+\subsubsection{Características de conmutación a $25^\circ$C}
+
+\begin{tabular}{p{14cm}}
+    $t_{on}$ : Tiempo de encendido. Es el tiempo que tarda el transistor en pasar de apagado a encendido (conducción). \\
+\end{tabular}
+
+  \section{Relevamiento para distintos transistores}
+
+    \subsection{BC548}
+  
+    \subsubsection{Características eléctricas a $25^\circ$C}
+    \begin{tabular}{ll}
+    $V_{(BR)CEO} = 30 \V$         & \hspace{2cm} $h_{FE} = $ \\
+    $I_{CEO} = $             & \hspace{2cm} $h_{fe} = $ \\
+    $I_{CES} = 0.2 $ nA             & \hspace{2cm} $V_{BE} = $ \\
+    $I_C = $                 & \hspace{2cm} $V_{CE(\text{sat})} = $ \\
+    $I_{EBO} = $             & \hspace{2cm} $P_d = $ \\
+    \end{tabular}
+    
+    \subsubsection{Características térmicas}
+    \begin{tabular}{ll}
+    $\theta_{jc} = $ \\
+    $\theta_{ja} = $ \\
+    \end{tabular}
+    
+    \subsubsection{Características de conmutación a $25^\circ$C}
+    \begin{tabular}{ll}
+    $t_{on} = $ \\
+    \end{tabular}
+
+
+  \subsection{BC557}
+
+  \subsection{2N2222}
+
+  \subsection{BU208}
+
+  \subsection{MPS6514}
+
+  \subsection{TIP36}
 
 \chapter{Conclusiones}
 
