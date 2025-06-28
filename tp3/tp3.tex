@@ -22,14 +22,60 @@
 \tableofcontents
 
 \chapter{Introduccion}
+El transistor bipolar de unión (BJT) es un 
+dispositivo semiconductor fundamental en la electrónica analógica, 
+ampliamente utilizado en aplicaciones de amplificación y conmutación. El 
+presente trabajo práctico tiene como finalidad estudiar el comportamiento 
+del transistor NPN bajo diferentes configuraciones y condiciones de 
+polarización, con el objetivo de comprender su funcionamiento interno y 
+su respuesta en cada zona de operación (zona activa, de saturación y de 
+corte).
+
+La metodología empleada combina el análisis teórico del circuito, 
+simulaciones por software y la posterior implementación en laboratorio. 
+Este enfoque permite analizar el comportamiento del transistor 
+en función de sus condiciones de operación, validar los modelos teóricos 
+mediante simulación y contrastar los resultados con mediciones reales. 
+Este trabajo se centrará en el estudio del transistor NPN, mientras que
+el análisis del transistor PNP será complementado en aula según los
+objetivos establecidos en las consignas.
+
+A través de este trabajo se busca fortalecer la comprensión de los 
+mecanismos de conducción en dispositivos semiconductores, y sentar las 
+bases para el diseño y análisis de circuitos electrónicos más complejos.
 
 \chapter{Identificación de las zonas de trabajo del transistor}
+En esta sección se analiza el comportamiento del transistor NPN en sus 
+distintas regiones de operación: corte, activa y saturación. Para ello, 
+se polarizan los circuitos de diferentes maneras, observando las 
+relaciones entre tensiones y corrientes que caracterizan cada zona de 
+trabajo.
+
+Previo a la implementación práctica en el laboratorio, se realizaron 
+simulaciones que permitieron anticipar el comportamiento esperado del 
+transistor bajo cada condición de polarización. Esto facilitó la 
+identificación de los parámetros clave a medir y la interpretación de los 
+resultados obtenidos.
 
 \section{Zona de corte}
   \subsection{Actividad de simulación}
 
   \section{Polarizacion de la juntura Base-Emisor}
+    Con esta actividad se busca caracterizar el comportamiento de la
+    juntra base-emisor del transistor. Esto es fundamental ya que en
+    cualquier aplicación del transistor, sea como amplificador o
+    dispositivo de conmutación, se requiere una correcta polarización
+    de la juntura en cuestión.
+    
     \subsection{Actividad de simulación}
+    Se comenzó simulando el circuito de la figura ~\ref{fig:circuito-simulacion-pol-junt-BE} en la aplicación de simulación
+    \textit{LTSpice}. Se puede observar que para esta simulación, se
+    mantiene la fuente $V_2 (V_{CC})$ constante, y la curva obtenida
+    es la corriente de base $I_B$ en función de la tensión $V_1(V_{BB})$, la cual se hace variar, o se hace un barrido, de 0V a 10V.
+    Luego, se plantean dos simulaciones más para el mismo circuito, 
+    pero esta vez haciendo variar $V_2 (V_{CC})$ (simulación 
+    ~\ref{fig:circuito-simulacion-pol-junt-BE-variandoVCC}) y haciendo
+    variar la temperatura (simulación ~\ref{fig:circuito-simulacion-pol-junt-BE-variandoTEMP}).
 
     \begin{figure}[H]
         \centering
@@ -74,11 +120,23 @@
     \end{figure}
     
     \subsection{Actividad de laboratorio}
+    Luego de realizar las simulaciones y entendiendo el comportamiento del
+    transistor al polarizar la juntura base-emisor, se procedió a ensayar el
+    modelo \textit{BC547B} en el laboratorio central de la facultad. Para ello,
+    se armó el mismo circuito simulado en una placa de pruebas, con los mismos
+    valores de resistores utilizados en la simulación ($R_B = 10k\Omega$ y
+    $R_C = 560\Omega$). Se utilizó también dos fuentes de alimentación, una fija
+    ($V_{CC}=10V$) y una que se hizo variar de 0V a 10V ($V_{BB}$). De este modo,
+    se registró los distintos valores de corriente de base $I_B$ y tensión
+    base-emisor $V_{BE}$ obtenidos, los cuales se registró en la siguiente tabla
+    y obteniendo la respectiva curva:
+    
       \begin{center}
       \resizebox{\textwidth}{!}{%
         \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
           \hline
-          $V_{BB}$ & 0 & 0.284 V & 0.393 V & 0.5 V & 0.596 V & 0.7 V & 0.8 V & 1.06 V & 3 V & 7 V & 10 V \\
+          \textbf{$V_{BB}$} & \textbf{0} & \textbf{0.284V} & \textbf{0.393V} & \textbf{0.5V}
+          & \textbf{0.596V} & \textbf{0.7V} & \textbf{0.8V} & \textbf{1.06V} & \textbf{3V} & \textbf{7V} & \textbf{10V} \\
           \hline
           $I_B$ & 0 A & 29 nA & 43 nA & 91 nA & 0.78 uA & 4.99 uA & 12.46 uA & 35.84 uA & 226.3 uA & 625 uA & 929 uA \\
           \hline
@@ -141,9 +199,45 @@
         \caption{\footnotesize $I_B$ en función de $V_{BE}$ a partir de mediciones en laboratorio}
         \end{figure}
 
+        \subsubsection{Fotografías}
+        A continuación se presentan fotografías de los distintos instrumentos de
+        medición y energización, y la disposición del cicuito ensayado:
 
+        \begin{figure}[H]
+        \begin{minipage}{0.40\textwidth}
+          \centering
+          \includegraphics[width=\textwidth]{pictures/disposicion-juntura-be.jpeg}
+          \caption{Circuito implementado en placa de pruebas.}
+          \label{fig:disposicion-juntura-be}
+        \end{minipage}
+        \begin{minipage}{0.40\textwidth}
+          \centering
+          \includegraphics[width=\textwidth]{pictures/fuente1.jpeg}
+          \caption{Fuente 1 fija ($V_{CC}=10V$).}
+          \label{fig:fuente1}
+        \end{minipage}
+        \begin{minipage}{0.40\textwidth}
+          \centering
+          \includegraphics[width=\textwidth]{pictures/fuente2.jpeg}
+          \caption{Fuente 2 variable ($0< V_{BB}<10V$).}
+          \label{fig:fuente2}
+        \end{minipage}
+        \begin{minipage}{0.40\textwidth}
+          \centering
+          \includegraphics[width=\textwidth]{pictures/multimetros-juntura-be.jpeg}
+          \caption{Multimetros utilizados.}
+          \label{fig:multimetros}
+        \end{minipage}
+        \end{figure}
+        
 \chapter{Curvas características}
+El objetivo de esta actividad es analizar las curvas características de
+salida del transistor, es decir, la corriente de colector $I_C$ en función
+de la tensión colector-emisor $V_{CE}$.
+
   \section{Actividad de simulación}
+  Primeramente se procede a simular el circuito de la figura 
+  ~\ref{fig:circuito-simulacion-salida}, la cual se puede observar 
       \begin{figure}[H]
           \centering
           \includegraphics[width=1\textwidth, keepaspectratio]{pictures/circuito-simulacion-salida.png}
@@ -164,7 +258,6 @@
     
     \begin{table}[H]
     \centering
-    \caption{Valores de $I_C$ y $V_{CE}$ medidos para distintos valores de $I_B$ y $V_{CC}$.}
     \resizebox{\textwidth}{!}{%
     \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
       \hline
@@ -181,12 +274,13 @@
       0.25 &  0  A &  0.24 V   &  312.5 uA   &  0.06 V  &  325 uA    &  0.05 V   &  332 uA   &  0.05 V  &  333 uA    &   0.04 V \\
       0.5  &  0  A &  0.48 V   &  701.7 uA   &  0.09 V  &  737 uA    &  0.08 V   &  725 uA   &  0.07 V  &  764 uA    &   0.06 V \\
       1    &  0  A &  0.99 V   &  1.564 mA   &  0.12 V  &  1.58 mA   &  0.11 V   &  1.64 mA  &  0.1 V   &  1.7 mA    &   0.09 V \\
-      2    &  0  a &  2 V      &  3.125 mA   &  0.21 V  &  3.32 mA   &  0.15 V   &  3.36 mA  &  0.13 V  &  3.37 mA   &   0.12 V \\
+      2    &  0  A &  2 V      &  3.125 mA   &  0.21 V  &  3.32 mA   &  0.15 V   &  3.36 mA  &  0.13 V  &  3.37 mA   &   0.12 V \\
       5    &  0  A &  5 V      &  2.84 mA    &  3.41 V  &  4.04 mA   &  2.67 V   &  5.49 mA  &  1.96 V  &  7.9 mA    &   0.51 V \\
       10   &  0  A &  9.97 V   &  2.97 mA    &  8.32 V  &  4.37 mA   &  7.53 V   &  5.85 mA  &  6.58 V  &  8.43 mA   &   5.23 V \\
       \hline
     \end{tabular}
     }
+    
     \end{table}
     
     
@@ -201,7 +295,6 @@
         grid=both,
         xmin=0, xmax=11, % <-- extendido para que entre todo
         legend style={at={(0.5,-0.25)}, anchor=north, legend columns=3},
-        title={Curvas de salida del transistor BC547}
     ]
     
     \addplot+[mark=*, thick, blue] coordinates {
@@ -231,7 +324,7 @@
     
     \end{axis}
     \end{tikzpicture}
-    \caption{Curvas de salida del BC547 para distintas $I_B$}
+    \caption{Curvas de salida del \textit{BC547B} para distintas $I_B$}
     \end{figure}
 
 
