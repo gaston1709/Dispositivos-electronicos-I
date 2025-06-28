@@ -59,7 +59,42 @@ resultados obtenidos.
 
 \section{Zona de corte}
   \subsection{Actividad de simulación}
+    Se parte analizando el comportamiento del transistor NPN cuando 
+    se encuentra en la región de corte. Para ello, se simula un 
+    circuito en el cual la juntura base-emisor no se encuentra 
+    polarizada directamente, impidiendo el flujo de corriente desde 
+    la base. Sin embargo, la juntura colector-emisor sí está 
+    polarizada, lo que permite observar que, en ausencia de 
+    corriente de base, el transistor no conduce corriente de 
+    colector significativa.
 
+    Esta condición representa el estado "apagado" del transistor, 
+    equivalente al de un interruptor abierto. El análisis de esta 
+    región permite confirmar que, sin polarización directa en la 
+    base, el transistor permanece en corte, aún cuando exista una 
+    tensión entre colector y emisor.
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.8\textwidth, keepaspectratio]{pictures/circuito-simulacion-corte.png}
+        \caption{}
+    \end{figure}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.8\textwidth, keepaspectratio]{pictures/curva-simulacion-corte.png}
+        \caption{$I_B$ en función de $V_{BE}$ resultado de simulación
+        ~\ref{fig:circuito-simulacion-corte}}
+    \end{figure}
+
+  A partir de la simulación y la curva obtenida, se puede concluir
+  que al no estar polarizada la juntura base-emisor, por el transistor
+  circula una corriente muy pequeña, denominada corriente de fuga en
+  el colector $I_{CEO}$ (en este caso, $I_{CEO}\approx26pA$), debido a 
+  los portadores minotarios. Por lo general, esta corriente es 
+  despreciable, así que se puede decir que al no estar polarizada la
+  juntura base-emisor (y si la juntura colector-base), el transistor
+  se encuentra en la zona de corte y no circula
+  corriente por el mismo ($I_C = 0$).
+  
   \section{Polarizacion de la juntura Base-Emisor}
     Con esta actividad se busca caracterizar el comportamiento de la
     juntra base-emisor del transistor. Esto es fundamental ya que en
@@ -210,22 +245,25 @@ resultados obtenidos.
           \caption{Circuito implementado en placa de pruebas.}
           \label{fig:disposicion-juntura-be}
         \end{minipage}
+        \hfill
         \begin{minipage}{0.40\textwidth}
           \centering
           \includegraphics[width=\textwidth]{pictures/fuente1.jpeg}
           \caption{Fuente 1 fija ($V_{CC}=10V$).}
           \label{fig:fuente1}
         \end{minipage}
+        \vspace{0.5cm} % espacio vertical entre filas
         \begin{minipage}{0.40\textwidth}
           \centering
           \includegraphics[width=\textwidth]{pictures/fuente2.jpeg}
           \caption{Fuente 2 variable ($0< V_{BB}<10V$).}
           \label{fig:fuente2}
         \end{minipage}
+        \hfill
         \begin{minipage}{0.40\textwidth}
           \centering
           \includegraphics[width=\textwidth]{pictures/multimetros-juntura-be.jpeg}
-          \caption{Multimetros utilizados.}
+          \caption{Multimetros utilizados. Multímetro derecha: marca UNI-T modelo UT61D+. Multímetro medio: marca genérica modelo DT9205A. Multímetro izquierda: marca BRYMEN modelo BM837RS.}
           \label{fig:multimetros}
         \end{minipage}
         \end{figure}
@@ -238,13 +276,17 @@ resultados obtenidos.
           la curva de corriente como en la variacion de la misma por efectos de la temperatura del dispositivo.
         
 \chapter{Curvas características}
-El objetivo de esta actividad es analizar las curvas características de
-salida del transistor, es decir, la corriente de colector $I_C$ en función
-de la tensión colector-emisor $V_{CE}$.
+El objetivo de esta actividad es analizar las curvas características de salida del transistor, es decir, cómo varía la corriente de colector $I_C$ en función de la tensión colector-emisor $V_{CE}$ para distintos valores de corriente de base $I_B$. Estas curvas permiten visualizar el comportamiento del transistor en sus diferentes regiones de operación (corte, activa y saturación) y son fundamentales para comprender su funcionamiento como dispositivo de control de corriente.
+
+A través del trazado de estas curvas, se puede observar cómo el transistor responde a cambios en la polarización, identificar los límites entre las distintas zonas de trabajo y evaluar su ganancia en región activa. Previamente al ensayo en el laboratorio, se realizaron simulaciones para predecir el comportamiento esperado y facilitar la comparación con los resultados experimentales.
+
+Este análisis resulta esencial para el diseño y la elección del punto de operación (punto Q) en aplicaciones de amplificación o conmutación.
 
   \section{Actividad de simulación}
-  Primeramente se procede a simular el circuito de la figura 
-  ~\ref{fig:circuito-simulacion-salida}, la cual se puede observar 
+  Primero, se procede a simular el circuito de la figura 
+  ~\ref{fig:circuito-simulacion-salida}, la cual se puede observar que se hace
+  un barrido de $V_2(V_{CC})$, para distintas tensiones de $V_1(V_{BB)}$. Las
+  distintas curvas resultantes se pueden observar en la figura ~\ref{fig:curva-simulacion-salida}
       \begin{figure}[H]
           \centering
           \includegraphics[width=1\textwidth, keepaspectratio]{pictures/circuito-simulacion-salida.png}
@@ -257,11 +299,15 @@ de la tensión colector-emisor $V_{CE}$.
           \includegraphics[width=1\textwidth, keepaspectratio]{pictures/curva-simulacion-salida.png}
           \caption{$I_C$ en función de $V_{CE}$ resultado de simulación 
           ~\ref{fig:circuito-simulacion-salida}}
+          \label{fig:curva-simulacion-salida}
       \end{figure}
 
-    
-
   \section{Actividad de laboratorio}
+  Luego de realizar la simulación, se procedió a armar el mismo circuito
+  en la placa de pruebas, utilizando los mismos valores resisistivos y el
+  mismo criterio para las fuentes de alimentación. Los valores obtenidos
+  se registraron en la tabla que se ve a continuación, y luego se trazaron
+  las respectivas curvas.
     
     \begin{table}[H]
     \centering
@@ -289,7 +335,6 @@ de la tensión colector-emisor $V_{CE}$.
     }
     
     \end{table}
-    
     
     \begin{figure}[H]
     \centering
@@ -333,6 +378,12 @@ de la tensión colector-emisor $V_{CE}$.
     \end{tikzpicture}
     \caption{Curvas de salida del \textit{BC547B} para distintas $I_B$}
     \end{figure}
+    
+    \begin{figure}[H]
+          \centering
+          \includegraphics[width=0.5\textwidth, keepaspectratio, angle=90]{pictures/disposicion-curvas-salida.jpeg}
+          \caption{Disposición circuito implementado para ensayo en laboratorio.}
+    \end{figure}
 
     \subsubsection{Conclusión}
       Se observó que un aumento en la corriente de base ($I_B$) produce un incremento proporcional en la corriente de
@@ -340,11 +391,45 @@ de la tensión colector-emisor $V_{CE}$.
       $I_C \approx h_{FE} \cdot I_B$. Por lo tanto, la base actúa como un control de paso para la corriente de colector,
       funcionando de forma análoga a una llave controlada por corriente.
 
-
-
 \chapter{Caracteristicas de transferencia de corriente}
+En esta sección se analiza la relación entre la corriente de colector $I_C$ y 
+la corriente de base $I_B$ del transistor NPN, conocida como ganancia de 
+corriente continua o $\beta$. Esta relación es fundamental para el diseño de
+circuitos amplificadores y puede variar según el punto de operación y las
+características del dispositivo.
+
+A través de una práctica de laboratorio, se medirá en distintas condiciones
+de polarización para observar si $\beta$ se mantiene constante en las diferentes
+regiones de trabajo del transistor. Previamente, se realizaron simulaciones
+que permitieron anticipar el comportamiento esperado y facilitar la
+comparación con los resultados experimentales.
+
+  \section{Actividad de simulación}
+  Como se realizó a lo largo de todo este trabajo práctico, antes de realizar
+  los ensayos en el laboratorio, se realiza la simulación del circuito a
+  ensayar. En la figura \ref{fig:circuito-simulacion-beta} se presenta el
+  circuito y los parámetros de simulación, y en la figura
+  \ref{fig:curva-simulacion-beta} se presentan las curvas resultantes.
+        \begin{figure}[H]
+          \centering
+          \includegraphics[width=\textwidth, keepaspectratio]{pictures/circuito-simulacion-beta.png}
+          \caption{Circuito implementado en la simulación.}
+          \label{fig:circuito-simulacion-beta}
+      \end{figure}
+  
+      \begin{figure}[H]
+          \centering
+          \includegraphics[width=1\textwidth, keepaspectratio]{pictures/curva-simulacion-beta.png}
+          \caption{$I_C$ en función de $I_B$ resultado de simulación 
+          ~\ref{fig:circuito-simulacion-beta}}
+          \label{fig:curva-simulacion-beta}
+      \end{figure}
 
   \section{Actividad de laboratorio}
+  Posterior a la simulación, se procede a implementar el mismo circuito en una
+  placa de pruebas y se realizan las distintas mediciones, las cuales fueron
+  registradas en la tabla \ref{fig:tabla-beta} y luego se trazaron las curvas
+  correspondientes.
     \begin{table}[H]
       \centering
       \begin{tabular}{|c|c|c|c|}
@@ -357,7 +442,8 @@ de la tensión colector-emisor $V_{CE}$.
         20 & 6.53 mA & 6.98 mA & 7.4 mA  \\
         \hline
       \end{tabular}
-      \caption{Ejemplo de la tabla a confeccionar}
+      \caption{Valores registrados del ensayo en laboratorio}
+      \label{fig:tabla-beta}
     \end{table}
 
 
@@ -407,6 +493,18 @@ de la tensión colector-emisor $V_{CE}$.
       \end{tabular}
       \caption{Valores de $\beta = \frac{I_C}{I_B}$ para distintos $V_{CE(\text{inicial})}$}
     \end{table}
+
+   \subsubsection{Fotografías}
+    A continuación se adjunta una fotografía de la disposición del circuito
+    ensayado para esta actividad. Las fuentes de alimentación y los elementos
+    de medición empleados son los mismos que se emplearon en las secciones
+    anteriores.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.6\textwidth, keepaspectratio]{pictures/disposicion-beta.jpeg}
+        \caption{Fotografía del ensayo realizado para esta actividad}
+    \end{figure}
 
     \subsubsection{Conclusión}
      En este ejercicio nos dimos cuenta de que cometimos el error de ajustar la tensión colector-emisor a su valor 
@@ -626,10 +724,6 @@ de la tensión colector-emisor $V_{CE}$.
   simulaciones se logró visualizar claramente la curva característica $I_C$ vs $V_{CE}$, que refleja las distintas 
   regiones de operación del transistor (corte, activa y saturación), mientras que en la experiencia de laboratorio, los 
   errores cometidos inicialmente impidieron reproducir dicha curva con fidelidad. Esta diferencia destacó el valor 
-  didáctico de la simulación y la importancia de aplicar correctamente los criterios de medición.
-  
-  Se adjuntan fotografías de las conexiones realizadas, los instrumentos utilizados y capturas de pantalla de las 
-  simulaciones más representativas.
-
+  didáctico de la simulación y la importancia de aplicar correctamente los criterios de medición. 
 
 \end{document}
