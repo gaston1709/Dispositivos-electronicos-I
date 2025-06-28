@@ -229,6 +229,13 @@ resultados obtenidos.
           \label{fig:multimetros}
         \end{minipage}
         \end{figure}
+
+        \subsubsection{Conclusión}
+
+          Se puede observar en la simulación que cuando no se le inyecta corriente a la base la unica corriente que
+          persiste en el dispositivo es la de fuga, que esta en el orden de los pico-amperes. Por otro lado se puede
+          observar como la juntura BE, al ser polarizada, se comporta como un diodo (por que al final es eso), tanto en
+          la curva de corriente como en la variacion de la misma por efectos de la temperatura del dispositivo.
         
 \chapter{Curvas características}
 El objetivo de esta actividad es analizar las curvas características de
@@ -327,6 +334,13 @@ de la tensión colector-emisor $V_{CE}$.
     \caption{Curvas de salida del \textit{BC547B} para distintas $I_B$}
     \end{figure}
 
+    \subsubsection{Conclusión}
+      Se observó que un aumento en la corriente de base ($I_B$) produce un incremento proporcional en la corriente de
+      colector ($I_C$), evidenciando el comportamiento típico del transistor en la región activa, donde 
+      $I_C \approx h_{FE} \cdot I_B$. Por lo tanto, la base actúa como un control de paso para la corriente de colector,
+      funcionando de forma análoga a una llave controlada por corriente.
+
+
 
 \chapter{Caracteristicas de transferencia de corriente}
 
@@ -393,6 +407,17 @@ de la tensión colector-emisor $V_{CE}$.
       \end{tabular}
       \caption{Valores de $\beta = \frac{I_C}{I_B}$ para distintos $V_{CE(\text{inicial})}$}
     \end{table}
+
+    \subsubsection{Conclusión}
+     En este ejercicio nos dimos cuenta de que cometimos el error de ajustar la tensión colector-emisor a su valor 
+     inicial en cada medición, en lugar de dejar que variara naturalmente. Esto provocó que obtuviéramos una curva 
+     lineal, en lugar de la curva característica del transistor observada en la simulación. Gracias a esta herramienta,
+     pudimos identificar nuestro error y comprender la importancia de contar con simulaciones para verificar el 
+     comportamiento de los circuitos, especialmente cuando los resultados experimentales no coinciden con lo esperado.
+
+     Por otro lado, la simulación también nos permitió visualizar cómo la corriente de colector depende directamente
+     tanto de la corriente inyectada a la base como de la tensión colector-emisor, reafirmando el funcionamiento típico
+     del transistor en sus distintas regiones de operación.
 
 \chapter{Interpretacion de las especificaciones del fabricante}
 
@@ -572,6 +597,39 @@ de la tensión colector-emisor $V_{CE}$.
 
 
 \chapter{Conclusiones}
+  Durante la realización de este trabajo práctico se presentaron distintos desafíos, tanto a nivel experimental como
+  conceptual. Uno de los principales inconvenientes fue la metodología utilizada en las mediciones: cometimos el error 
+  de mantener constante la tensión colector-emisor ($V_{CE}$) en cada punto, en lugar de permitir su variación natural.
+  Esto resultó en la obtención de una curva lineal que no reflejaba adecuadamente el comportamiento característico del 
+  transistor bipolar. Fue gracias a la comparación con la simulación que pudimos detectar este desvío y corregir nuestra
+  interpretación.
+
+  Por otro lado, la simulación fue una herramienta fundamental para comprender con mayor profundidad el funcionamiento 
+  interno del transistor. Nos permitió observar, por ejemplo, que cuando no se inyecta corriente a la base, la única 
+  corriente presente es la de fuga, la cual se encuentra en el orden de los picoamperes. Asimismo, confirmamos que la 
+  juntura base-emisor (BE), al ser polarizada directamente, se comporta como un diodo, lo cual es coherente con la 
+  teoría, ya que esta unión PN es precisamente eso. Además, pudimos notar cómo esta corriente se ve afectada por la 
+  temperatura, tal como se anticipa desde el modelo físico del diodo.
+  
+  A través de las distintas mediciones y simulaciones, también corroboramos que existe una relación directa entre la 
+  corriente de base ($I_B$) y la corriente de colector ($I_C$), cumpliéndose la ecuación $I_C \approx h_{FE} \cdot I_B$ 
+  en la región activa del transistor. Esta observación valida el modelo de amplificación por corriente y nos permitió 
+  interpretar la base como una suerte de llave de control, capaz de regular el paso de corriente entre colector y
+  emisor.
+  
+  En cuanto a los criterios de medición, se utilizó instrumental básico de laboratorio (fuente, multímetro, y 
+  resistencias limitadoras) asegurando que los valores no excedieran las máximas especificaciones del transistor 
+  utilizado. Se realizaron cálculos previos para definir los valores de las resistencias de polarización, considerando 
+  los parámetros típicos de un BJT como el $V_{BE}$ y el $h_{FE}$ estimado.
+  
+  Finalmente, los gráficos obtenidos (tanto experimentales como simulados) fueron analizados y comparados. En las 
+  simulaciones se logró visualizar claramente la curva característica $I_C$ vs $V_{CE}$, que refleja las distintas 
+  regiones de operación del transistor (corte, activa y saturación), mientras que en la experiencia de laboratorio, los 
+  errores cometidos inicialmente impidieron reproducir dicha curva con fidelidad. Esta diferencia destacó el valor 
+  didáctico de la simulación y la importancia de aplicar correctamente los criterios de medición.
+  
+  Se adjuntan fotografías de las conexiones realizadas, los instrumentos utilizados y capturas de pantalla de las 
+  simulaciones más representativas.
 
 
 \end{document}
