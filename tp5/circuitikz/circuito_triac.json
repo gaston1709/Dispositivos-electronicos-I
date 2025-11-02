@@ -1,0 +1,310 @@
+{
+    "version": "0.1",
+    "components": [
+        {
+            "type": "path",
+            "points": [
+                {
+                    "x": 0.756,
+                    "y": -75.591
+                },
+                {
+                    "x": 0.756,
+                    "y": -151.182
+                }
+            ],
+            "label": {
+                "value": "R",
+                "distance": "0.12cm"
+            },
+            "id": "american resistor"
+        },
+        {
+            "type": "node",
+            "position": {
+                "x": 0.756,
+                "y": 139.843
+            },
+            "id": "ground"
+        },
+        {
+            "type": "path",
+            "points": [
+                {
+                    "x": -47.362,
+                    "y": 0.663
+                },
+                {
+                    "x": -122.952,
+                    "y": 0.663
+                }
+            ],
+            "id": "full bidirectionaldiode"
+        },
+        {
+            "type": "path",
+            "points": [
+                {
+                    "x": 0,
+                    "y": 66.142
+                },
+                {
+                    "x": 0.756,
+                    "y": -11.338
+                }
+            ],
+            "id": "full triac"
+        },
+        {
+            "type": "path",
+            "points": [
+                {
+                    "x": -188.976,
+                    "y": 0
+                },
+                {
+                    "x": -132.283,
+                    "y": 0
+                }
+            ],
+            "label": {
+                "value": "I_G",
+                "distance": "0.12cm"
+            },
+            "id": "ammeter"
+        },
+        {
+            "type": "path",
+            "points": [
+                {
+                    "x": -226.772,
+                    "y": 37.795
+                },
+                {
+                    "x": -226.772,
+                    "y": -37.795
+                }
+            ],
+            "id": "american potentiometer",
+            "scale": {
+                "x": 1,
+                "y": -1
+            }
+        },
+        {
+            "type": "wire",
+            "points": [
+                {
+                    "x": 0.756,
+                    "y": -11.338
+                },
+                {
+                    "x": 0,
+                    "y": -75.591
+                }
+            ],
+            "stroke": {
+                "width": "0.4pt"
+            },
+            "directions": [
+                "|-"
+            ]
+        },
+        {
+            "type": "wire",
+            "points": [
+                {
+                    "x": -226.772,
+                    "y": -37.795
+                },
+                {
+                    "x": -226.772,
+                    "y": -75.591
+                },
+                {
+                    "x": 0,
+                    "y": -75.591
+                }
+            ],
+            "stroke": {
+                "width": "0.4pt"
+            },
+            "directions": [
+                "|-",
+                "-|"
+            ]
+        },
+        {
+            "type": "path",
+            "points": [
+                {
+                    "x": 0.756,
+                    "y": 139.843
+                },
+                {
+                    "x": 0,
+                    "y": 66.142
+                }
+            ],
+            "label": {
+                "value": "I_A",
+                "distance": "0.12cm"
+            },
+            "id": "ammeter"
+        },
+        {
+            "type": "path",
+            "points": [
+                {
+                    "x": 85.039,
+                    "y": 75.591
+                },
+                {
+                    "x": 85.039,
+                    "y": -37.795
+                }
+            ],
+            "label": {
+                "value": "V_{CC}",
+                "distance": "0.12cm"
+            },
+            "id": "voltmeter"
+        },
+        {
+            "type": "wire",
+            "points": [
+                {
+                    "x": 85.039,
+                    "y": 75.591
+                },
+                {
+                    "x": 0.756,
+                    "y": 139.843
+                }
+            ],
+            "stroke": {
+                "width": "0.4pt"
+            },
+            "directions": [
+                "|-"
+            ]
+        },
+        {
+            "type": "wire",
+            "points": [
+                {
+                    "x": 85.039,
+                    "y": -37.795
+                },
+                {
+                    "x": 0.756,
+                    "y": -151.182
+                }
+            ],
+            "stroke": {
+                "width": "0.4pt"
+            },
+            "directions": [
+                "|-"
+            ]
+        },
+        {
+            "type": "wire",
+            "points": [
+                {
+                    "x": -226.772,
+                    "y": 37.795
+                },
+                {
+                    "x": 0.756,
+                    "y": 139.843
+                }
+            ],
+            "stroke": {
+                "width": "0.4pt"
+            },
+            "directions": [
+                "|-"
+            ]
+        },
+        {
+            "type": "node",
+            "position": {
+                "x": 0,
+                "y": -151.181
+            },
+            "id": "vcc"
+        },
+        {
+            "type": "node",
+            "label": {
+                "value": "V_{CC}",
+                "anchor": "default",
+                "position": "default",
+                "distance": "0.12cm"
+            },
+            "position": {
+                "x": 0.756,
+                "y": -151.182
+            },
+            "id": "vcc"
+        },
+        {
+            "type": "wire",
+            "points": [
+                {
+                    "x": -188.976,
+                    "y": 0
+                },
+                {
+                    "x": -205.607,
+                    "y": 0
+                }
+            ],
+            "stroke": {
+                "width": "0.4pt"
+            },
+            "directions": [
+                "-|"
+            ]
+        },
+        {
+            "type": "wire",
+            "points": [
+                {
+                    "x": -122.835,
+                    "y": 0
+                },
+                {
+                    "x": -132.283,
+                    "y": 0
+                }
+            ],
+            "stroke": {
+                "width": "0.4pt"
+            },
+            "directions": [
+                "-|"
+            ]
+        },
+        {
+            "type": "wire",
+            "points": [
+                {
+                    "x": -47.362,
+                    "y": 0.663
+                },
+                {
+                    "x": -28.465,
+                    "y": 0.663
+                }
+            ],
+            "stroke": {
+                "width": "0.4pt"
+            },
+            "directions": [
+                "-|"
+            ]
+        }
+    ]
+}

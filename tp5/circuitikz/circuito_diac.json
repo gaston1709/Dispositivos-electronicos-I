@@ -1,0 +1,204 @@
+{
+    "version": "0.1",
+    "components": [
+        {
+            "type": "path",
+            "points": [
+                {
+                    "x": 0,
+                    "y": 37.795
+                },
+                {
+                    "x": 0,
+                    "y": -37.795
+                }
+            ],
+            "id": "full bidirectionaldiode"
+        },
+        {
+            "type": "path",
+            "points": [
+                {
+                    "x": 113.386,
+                    "y": 37.795
+                },
+                {
+                    "x": 113.386,
+                    "y": -37.795
+                }
+            ],
+            "label": {
+                "value": "V_2",
+                "distance": "0.12cm"
+            },
+            "id": "voltmeter"
+        },
+        {
+            "type": "path",
+            "points": [
+                {
+                    "x": 0,
+                    "y": -37.795
+                },
+                {
+                    "x": 0,
+                    "y": -113.386
+                }
+            ],
+            "label": {
+                "value": "R",
+                "distance": "0.12cm"
+            },
+            "id": "american resistor"
+        },
+        {
+            "type": "node",
+            "label": {
+                "value": "V_{CC}",
+                "anchor": "default",
+                "position": "default",
+                "distance": "0.12cm"
+            },
+            "position": {
+                "x": 0,
+                "y": -132.283
+            },
+            "id": "vcc"
+        },
+        {
+            "type": "wire",
+            "points": [
+                {
+                    "x": 0,
+                    "y": -37.795
+                },
+                {
+                    "x": 113.386,
+                    "y": -37.795
+                }
+            ],
+            "stroke": {
+                "width": "0.4pt"
+            },
+            "directions": [
+                "-|"
+            ]
+        },
+        {
+            "type": "wire",
+            "points": [
+                {
+                    "x": 0,
+                    "y": 37.795
+                },
+                {
+                    "x": 113.386,
+                    "y": 37.795
+                }
+            ],
+            "stroke": {
+                "width": "0.4pt"
+            },
+            "directions": [
+                "-|"
+            ]
+        },
+        {
+            "type": "path",
+            "points": [
+                {
+                    "x": 188.976,
+                    "y": 0
+                },
+                {
+                    "x": 188.976,
+                    "y": -75.59
+                }
+            ],
+            "label": {
+                "value": "V_1",
+                "distance": "0.12cm"
+            },
+            "id": "voltmeter"
+        },
+        {
+            "type": "wire",
+            "points": [
+                {
+                    "x": 0,
+                    "y": -113.386
+                },
+                {
+                    "x": 188.976,
+                    "y": -75.591
+                }
+            ],
+            "stroke": {
+                "width": "0.4pt"
+            },
+            "directions": [
+                "-|"
+            ]
+        },
+        {
+            "type": "path",
+            "points": [
+                {
+                    "x": 0,
+                    "y": 113.386
+                },
+                {
+                    "x": 0,
+                    "y": 37.795
+                }
+            ],
+            "id": "ammeter"
+        },
+        {
+            "type": "node",
+            "position": {
+                "x": 0,
+                "y": 113.386
+            },
+            "id": "ground"
+        },
+        {
+            "type": "wire",
+            "points": [
+                {
+                    "x": 0,
+                    "y": -113.386
+                },
+                {
+                    "x": 0,
+                    "y": -132.283
+                }
+            ],
+            "stroke": {
+                "width": "0.4pt"
+            },
+            "directions": [
+                "-|"
+            ]
+        },
+        {
+            "type": "wire",
+            "points": [
+                {
+                    "x": 188.976,
+                    "y": 0
+                },
+                {
+                    "x": 0,
+                    "y": 47.244
+                }
+            ],
+            "stroke": {
+                "width": "0.4pt"
+            },
+            "directions": [
+                "|-"
+            ]
+        }
+    ]
+}
