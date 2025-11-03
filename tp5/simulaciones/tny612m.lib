@@ -1,0 +1,52 @@
+.SUBCKT SCR_ADVANCED A K G PARAMS: Vdrm=600 Vgt=1.3 Igt=5m Ih=20m Vtm=1.6 Itm=24
+* A=Anode, K=Cathode, G=Gate
+* Vdrm: Voltaje de ruptura en directa (forward breakover voltage)
+* Vgt: Voltaje de disparo en compuerta
+* Igt: Corriente de disparo en compuerta
+* Ih: Corriente de mantenimiento (holding current)
+* Vtm: Voltaje en estado ON (a Itm)
+* Itm: Corriente en estado ON
+
+* --- PARAMETROS CALCULADOS ---
+.param R_sh = {Vgt / Igt}
+.param Alpha_pnp = {Igt / Ih}
+.param Bf_pnp = {Alpha_pnp / (1 - Alpha_pnp)}
+.param R_c = {(Vtm - Vgt) / Itm}
+
+* --- ESTRUCTURA DE LATCH (PNP-NPN) ---
+* Q_pnp <C> <B> <E>
+Q_pnp p_base n_base A PNP_MODEL
+* Q_npn <C> <B> <E>
+Q_npn n_base p_base K NPN_MODEL
+
+* --- REQUISITO 1: Region G-K como diodo ---
+R_gate G p_base 10
+R_shunt p_base K {R_sh}
+D_rev K G D_GATE_PROT
+
+* --- REQUISITO 2 y 3: Disparo por Ruptura (Vbo) y efecto de IG ---
+D_vbo p_base n_base ZENER_VBO
+
+* --- MODELOS DE COMPONENTES ---
+.MODEL PNP_MODEL PNP(Is=1e-12 Bf={Bf_pnp} Rc={R_c})
+.MODEL NPN_MODEL NPN(Is=1e-12 Bf=20 Rc={R_c})
+.MODEL ZENER_VBO D(BV={Vdrm} Rs=10k)
+.MODEL D_GATE_PROT D(BV=5) ; Zener de 5V para proteccion de compuerta
+
+.ENDS SCR_ADVANCED
+
+******************************************************************
+* Modelo TYN612M (12A, 600V SCR)
+* Basado en el subcircuito SCR_ADVANCED
+*
+* Parametros de la hoja de datos (tyn612m.pdf):
+* Vdrm = 600V     
+* Igt(max) = 5mA  
+* Vgt(max) = 1.3V 
+* Ih(max) = 20mA  
+* Vtm(max) = 1.6V @ 24A 
+******************************************************************
+.SUBCKT TYN612M A K G
+* Llama al modelo base con los parametros del TYN612M
+X1 A K G SCR_ADVANCED PARAMS: Vdrm=600 Vgt=1.3 Igt=5m Ih=20m Vtm=1.6 Itm=12
+.ENDS TYN612M
