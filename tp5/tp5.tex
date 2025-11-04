@@ -26,6 +26,15 @@
 \tableofcontents
 
 \chapter{Introduccion}
+En este trabajo práctico se analizan distintos dispositivos pertenecientes a la familia de los tiristores: SCR, DIAC y
+TRIAC. El objetivo principal es estudiar sus características eléctricas, obtener sus curvas características y comprender
+su funcionamiento en distintas condiciones de operación, incluyendo el disparo, la conducción y el apagado.
+
+Las actividades combinan mediciones experimentales en laboratorio con simulaciones, lo que permite observar con precisión
+el comportamiento dinámico de cada dispositivo y, al mismo tiempo, contrastarlo con situaciones reales. A través de
+estas prácticas, se exploran también algunas aplicaciones típicas de los tiristores, especialmente en el control de
+potencia y la conmutación de señales.
+
 
 \chapter{SCR}
 \section{Condición de disparo y corriente de mantenimiento}
@@ -65,6 +74,11 @@
     \label{fig:circuito-scr}
 \end{figure}
 
+Para la realización de la experiencia se siguieron de manera estricta todos los pasos establecidos en las consignas del
+trabajo. En primer lugar, se armó el circuito según el esquema provisto y se ajustó la tensión $V_{CC}$ a $0\,\text{V}$.
+A continuación, se cerró el circuito en el punto donde se preveía la inclusión del interruptor y se procedió a variar
+el potenciómetro para relevar los valores de $V_G$ correspondientes a la tabla \ref{table:ig-vg}
+
 \begin{table}[ht!]
     \centering
     \small
@@ -76,6 +90,7 @@
        \hline
     \end{tabular}
     \caption{valores de $I_G = f(V_G)$ obtenidos en laboratorio.}
+    \label{table:ig-vg}
 \end{table}
 
 \begin{figure}[ht!]
@@ -118,12 +133,61 @@
     \label{fig:ig-vg}
 \end{figure}
 
+Luego, se estableció $V_G = 0\,\text{V}$ con el circuito cerrado y se configuró $V_{CC} = 100\,\text{V}$. A partir de
+allí, se incrementó lentamente la tensión de compuerta hasta observar un cambio significativo en la corriente $I_{AK}$,
+indicando el disparo del SCR.
+
+Manteniendo el potenciómetro en la posición correspondiente al disparo, se abrió el circuito y se analizó el
+comportamiento de la corriente $I_{AK}$. Con el circuito abierto, se disminuyó la tensión $V_{CC}$ en pasos de
+$10\,\text{V}$, y en pasos de $1\,\text{V}$ cercano al punto de apagado del SCR, registrando la corriente $I_{AK}$ en
+cada caso, que se cuentran en la tabla \ref{table:corriente-mantenimiento}.
+Posteriormente, se volvió a aumentar gradualmente $V_{CC}$
+hasta alcanzar nuevamente los $100\,\text{V}$, observando la evolución de $I_{AK}$ en este proceso.
+
+\begin{table}[ht!]
+    \centering
+    \small
+    \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
+       \hline
+       $V_{CC}$ [V] & 96.6 & 86.6 & 76 & 63.8 & 53 & 45.5 & 43.5 & 41.4 & 39.1 & 37.95 & 36.92 \\ 
+       \hline
+       $V_{AK}$ [V] & 0.7 & 0.7 & 0.7 & 0.7 & 0.7 & 0.71 & 0.716 & 0.723 & 0.742 & 0.757 & 36.92 \\
+       \hline
+       $I_{AK}$ [mA] & 21 & 20 & 15 & 13 & 9 & 8 & 8 & 8 & 8 & 8 & 0 \\
+       \hline
+    \end{tabular}
+    \caption{valores de obtenidos en laboratorio.}
+    \label{table:corriente-mantenimiento}
+\end{table}
+
+
+Con la tensión restituida a $100\,\text{V}$, se cerró nuevamente el circuito verificando que los valores de $V_G$ e $I_G$
+coincidieran con los obtenidos previamente. Se analizó el comportamiento de $I_{AK}$ al cerrar el circuito y, luego,
+se abrió nuevamente para observar la variación correspondiente en la corriente.
+
+Finalmente, se desconectaron las alimentaciones sin modificar la posición del potenciómetro y se invirtieron las
+conexiones del ánodo y cátodo del SCR. Se reconectaron las fuentes, se cerró el circuito y se estudió el
+comportamiento de $I_{AK}$ bajo esta nueva configuración.
+
+La alternativa planteada para disparar el SCR implica la aplicación de una corriente $I_G$ en la compurta del dispositivo.
+Esto dispara el dispositivo ya que la aplicación de esta corriente reduce la tensión de ruptura, tensión a la cual se
+dispara el dispositivo. Otra forma de disparar el SCR sin corriente en la compuerta, es alcanzando la tensión de ruptura
+para $I_G = 0$, tensión que es muy alta (mayor a 600V para el dispositivo que utilizamos).
 
 \subsection{Actividad de simulación}
 
 \section{Obtención de curva característica}
+Con la experiencia de la actividad anterior, se buscará controlar el disparo del SCR
+mediante diferentes corrientes IG. Además, se identificará si efectivamente la conmutación de
+inactivo a activo se da a diferentes valores de $V_{AK}$.
+
 \subsection{Actividad de laboratorio}
-Con el mismo circuito de la Fig. \ref{fig:circuito-scr}
+Para la realización de la actividad se siguieron los pasos detallados en la guía de trabajo. En primer lugar, se armó
+el circuito de la Fig. \ref{fig:circuito-scr}.
+
+A continuación, se completaron los valores de la tabla \ref{table:disparo} fijando el valor de $I_G$ y variando la
+tensión $V_{CC}$ hasta observar el disparo del SCR. Para cada caso se relevaron los valores de
+$V_{CC}$, $I_{AK}$ y $V_{AK}$ correspondientes al punto de disparo.
 
 \begin{table}[ht!]
     \centering
@@ -140,7 +204,13 @@ Con el mismo circuito de la Fig. \ref{fig:circuito-scr}
        \hline
     \end{tabular}
     \caption{relevamiento de disparo del SCR para diferentes valores de $I_G$.}
+    \label{table:disparo}
 \end{table}
+
+Posteriormente, se procedió a completar los valores de la \ref{table:curva-scr}, nuevamente fijando el valor de $I_G$ y variando
+$V_{CC}$. En cada caso se registraron los valores de $I_{AK}$ y $V_{AK}$.
+Se tuvo en cuenta ajustar los valores de corrientes y tensiones según las características del dispositivo utilizado. Esto
+se hace con el objetivo de obtener la curva característica del dispositivo, la cual se grafíca en la figura \ref{fig:curva-scr}.
 
 \begin{table}[h]
     \centering
@@ -171,6 +241,7 @@ Con el mismo circuito de la Fig. \ref{fig:circuito-scr}
     \end{tabular}
     }
     \caption{Tabla de $I_{AK} = f(V_{AK})$ para distintos valores de $I_{G}$.}
+    \label{table:curva-scr}
 \end{table}
 
 \begin{figure}[h]
@@ -224,16 +295,32 @@ Con el mismo circuito de la Fig. \ref{fig:circuito-scr}
     \end{axis}
 \end{tikzpicture}
 \caption{Curvas características $I_{AK}(V_{AK})$ del SCR para distintos $I_G$.}
+\label{fig:curva-scr}
 \end{figure}
 
-
+Con estos resultados se puede demostrar lo afirmado en el ejercicio anterior, que la tensión de ruptura o disparo del
+SCR disminuye con la aplicación de una corriente en la compuerta del dispositivo. Además, la curva característica
+obtenida se asemeja a lo estudiado en la teoría.
 
 \section{Funcionamiento con corriente alterna}
+En esta actividad se estudian dos aspectos fundamentales del funcionamiento del SCR: el control de disparo y el proceso
+de apagado. Estas características resultan esenciales en aplicaciones donde es necesario regular la transferencia de
+potencia hacia una carga a partir de una fuente de corriente alterna.
+
+La experiencia se desarrolla íntegramente en un entorno de simulación, lo cual ofrece ventajas significativas respecto
+de una práctica de laboratorio convencional. La simulación permite visualizar con mayor detalle las formas de onda
+involucradas y facilita la realización de múltiples ensayos modificando parámetros como la tensión de alimentación o
+el valor de componentes específicos. Gracias a ello, es posible analizar con mayor precisión el comportamiento del
+dispositivo y comprender de manera más completa su dinámica de conducción y bloqueo.
 \subsection{Actividad de simulación}
 
 \chapter{DIAC}
 Objetivo: determinar la polarización y funcionamiento del DIAC.
 \section{Actividad de laboratorio}
+
+Para la realización de la actividad se siguieron los pasos establecidos. En primer lugar, se armó el circuito de la figura \ref{fig:circuito-diac}
+seleccionando un valor de resistencia de $4.7K \Omega$, suficiente de acuerdo con la información provista en el datasheet del DIAC.
+
 \begin{figure}[ht!]
     \centering
     \begin{tikzpicture}
@@ -252,7 +339,16 @@ Objetivo: determinar la polarización y funcionamiento del DIAC.
         \draw (3.25, -0) |- (-1.75, -1.25);
     \end{tikzpicture}
     \caption{circuito implementado en el laboratorio.}
+    \label{fig:circuito-diac}
 \end{figure}
+
+A continuación, se varió la tensión alimentación $V_{CC}$ desde $0\,\text{V}$ hasta $50\,\text{V}$ siguiendo los valores
+indicados en la tabla correspondiente. Para cada caso se midieron la corriente circulante y la caída de tensión en el DIAC.
+
+Luego, se invirtieron los terminales del DIAC y se repitieron las variaciones y mediciones detalladas en los pasos anteriores.
+
+En la tabla \ref{table:diac} se puede observar los valores obtenidos, que son los mismos para las dos polarizades del
+DIAC. En la figura \ref{fig:diac} se grafican dichos valores.
 
 \begin{table}[ht!]
     \centering
@@ -267,6 +363,7 @@ Objetivo: determinar la polarización y funcionamiento del DIAC.
        \hline
     \end{tabular}
     \caption{relevamiento de disparo del SCR para diferentes valores de $I_G$.}
+    \label{table:diac}
 \end{table}
 
 \begin{figure}[ht!]
@@ -276,17 +373,17 @@ Objetivo: determinar la polarización y funcionamiento del DIAC.
       width=12cm, height=8cm,
       xlabel={$V_{AK}$ [V]},
       ylabel={$I_{AK}$ [mA]},
-      xmin=0, xmax=55,
-      ymin=0, ymax=7,
+      xmin=-55, xmax=55,
+      ymin=-7, ymax=7,
       grid=both,
       grid style={line width=.1pt, draw=gray!30},
       major grid style={line width=.2pt,draw=gray!50},
-      legend pos= north west,
+      legend pos=north west,
       enlargelimits=false,
       clip=false,
     ]
 
-    % Datos (ordenados para la gráfica)
+    % ----------- Curva positiva -----------
     \addplot[
       mark=*,
       mark options={fill=white},
@@ -301,18 +398,38 @@ Objetivo: determinar la polarización y funcionamiento del DIAC.
       (22.6,3.72)
       (22.2,4.90)
       (21.9,5.92)
-      };
+    };
 
-    % Marcar los puntos originales (más visibles)
+    % ----------- Curva negativa (reflejada) -----------
+    \addplot[
+      mark=*,
+      mark options={fill=white},
+      thick,
+    ] coordinates {
+      (0,0)
+      (-10,0)
+      (-20,0)
+      (-30,0)
+      (-23.8,-1.74)
+      (-23.4,-2.24)
+      (-22.6,-3.72)
+      (-22.2,-4.90)
+      (-21.9,-5.92)
+    };
+
+    % ----------- Puntos experimentales ----------
     \addplot[only marks, mark=*, mark size=2pt] coordinates {
-      (0,0) (10,0) (20,0) (21.9,5.92) (22.2,4.90) (22.6,3.72)
-      (23.4,2.24) (23.8,1.74) (30,0) 
+      (0,0) (10,0) (20,0) (21.9,5.92)
+      (22.2,4.90) (22.6,3.72) (23.4,2.24) (23.8,1.74) (30,0)
+
+      (0,0) (-10,0) (-20,0) (-21.9,-5.92)
+      (-22.2,-4.90) (-22.6,-3.72) (-23.4,-2.24) (-23.8,-1.74) (-30,0)
     };
 
     \end{axis}
   \end{tikzpicture}
-  \caption{Curva $I_{AK}$ vs $V_{AK}$ del DIAC (datos experimentales).}
-  \label{fig:diac-IV}
+  \caption{curva $I_{AK}=f(V_{AK})$ del DIAC.} 
+  \label{fig:diac}
 \end{figure}
 
 \chapter{TRIAC}
