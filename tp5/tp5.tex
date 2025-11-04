@@ -18,7 +18,7 @@
 \titulo{Trabajo Practico N°5: TIRISTORES}
 \comision{3R2}
 \autores{Documentador y operador: Gaston Grasso 401892\\ Coordinador: Angelo Prieto 401012}
-\fecha{14-10-2025}
+\fecha{4-11-2025}
 
 
 \begin{document}
@@ -80,18 +80,17 @@ A continuación, se cerró el circuito en el punto donde se preveía la inclusi�
 el potenciómetro para relevar los valores de $V_G$ correspondientes a la tabla \ref{table:ig-vg}
 
 \begin{table}[ht!]
-<<<<<<< HEAD
-    \centering
-    \small
-    \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
-       \hline
-       $V_G$ [V] & 0 & 0.057 & 0.116 & 0.18 & 0.238 & 0.302 & 0.393 & 0.485 & 0.543 & 0.611 \\ 
-       \hline
-       $I_G$ [mA] & 0 & 0.25 & 0.51 & 0.8 & 1.05 & 1.33 & 1.74 & 2.15 & 2.43 & 2.81 \\ 
-       \hline
-    \end{tabular}
-    \caption{valores de $I_G = f(V_G)$ obtenidos en laboratorio.}
-    \label{table:ig-vg}
+	\centering
+	\small
+	\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
+		\hline
+		$V_G$ [V]  & 0 & 0.057 & 0.116 & 0.18 & 0.238 & 0.302 & 0.393 & 0.485 & 0.543 & 0.611 \\
+		\hline
+		$I_G$ [mA] & 0 & 0.25  & 0.51  & 0.8  & 1.05  & 1.33  & 1.74  & 2.15  & 2.43  & 2.81  \\
+		\hline
+	\end{tabular}
+	\caption{valores de $I_G = f(V_G)$ obtenidos en laboratorio.}
+	\label{table:ig-vg}
 \end{table}
 
 \begin{figure}[ht!]
@@ -146,19 +145,19 @@ Posteriormente, se volvió a aumentar gradualmente $V_{CC}$
 hasta alcanzar nuevamente los $100\,\text{V}$, observando la evolución de $I_{AK}$ en este proceso.
 
 \begin{table}[ht!]
-    \centering
-    \small
-    \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
-       \hline
-       $V_{CC}$ [V] & 96.6 & 86.6 & 76 & 63.8 & 53 & 45.5 & 43.5 & 41.4 & 39.1 & 37.95 & 36.92 \\ 
-       \hline
-       $V_{AK}$ [V] & 0.7 & 0.7 & 0.7 & 0.7 & 0.7 & 0.71 & 0.716 & 0.723 & 0.742 & 0.757 & 36.92 \\
-       \hline
-       $I_{AK}$ [mA] & 21 & 20 & 15 & 13 & 9 & 8 & 8 & 8 & 8 & 8 & 0 \\
-       \hline
-    \end{tabular}
-    \caption{valores de obtenidos en laboratorio.}
-    \label{table:corriente-mantenimiento}
+	\centering
+	\small
+	\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
+		\hline
+		$V_{CC}$ [V]  & 96.6 & 86.6 & 76  & 63.8 & 53  & 45.5 & 43.5  & 41.4  & 39.1  & 37.95 & 36.92 \\
+		\hline
+		$V_{AK}$ [V]  & 0.7  & 0.7  & 0.7 & 0.7  & 0.7 & 0.71 & 0.716 & 0.723 & 0.742 & 0.757 & 36.92 \\
+		\hline
+		$I_{AK}$ [mA] & 21   & 20   & 15  & 13   & 9   & 8    & 8     & 8     & 8     & 8     & 0     \\
+		\hline
+	\end{tabular}
+	\caption{valores de obtenidos en laboratorio.}
+	\label{table:corriente-mantenimiento}
 \end{table}
 
 
@@ -174,6 +173,12 @@ La alternativa planteada para disparar el SCR implica la aplicación de una corr
 Esto dispara el dispositivo ya que la aplicación de esta corriente reduce la tensión de ruptura, tensión a la cual se
 dispara el dispositivo. Otra forma de disparar el SCR sin corriente en la compuerta, es alcanzando la tensión de ruptura
 para $I_G = 0$, tensión que es muy alta (mayor a 600V para el dispositivo que utilizamos).
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.95\linewidth]{Images/circuito SCR armado.jpeg}
+	\caption{Circuito para experimentacion armado utilizando un paralelo de 6 resistencias de potencia.}
+\end{figure}
 
 \subsection{Actividad de simulación}
 
@@ -238,7 +243,6 @@ Tras el disparo, \(I_A\) queda fijada por \(V_2\) y \(R_2\) (enclavamiento).
 \end{itemize}
 
 
-\newpage
 
 \section{Obtención de curva característica}
 Con la experiencia de la actividad anterior, se buscará controlar el disparo del SCR
@@ -254,7 +258,6 @@ tensión $V_{CC}$ hasta observar el disparo del SCR. Para cada caso se relevaron
 $V_{CC}$, $I_{AK}$ y $V_{AK}$ correspondientes al punto de disparo.
 
 \begin{table}[ht!]
-=======
 	\centering
 	\small
 	\begin{tabular}{|c|c|c|c|}
@@ -269,7 +272,7 @@ $V_{CC}$, $I_{AK}$ y $V_{AK}$ correspondientes al punto de disparo.
 		\hline
 	\end{tabular}
 	\caption{relevamiento de disparo del SCR para diferentes valores de $I_G$.}
-   \label{table:disparo}
+	\label{table:disparo}
 \end{table}
 
 Posteriormente, se procedió a completar los valores de la \ref{table:curva-scr}, nuevamente fijando el valor de $I_G$ y variando
@@ -278,9 +281,8 @@ Se tuvo en cuenta ajustar los valores de corrientes y tensiones según las carac
 se hace con el objetivo de obtener la curva característica del dispositivo, la cual se grafíca en la figura \ref{fig:curva-scr}.
 
 \begin{table}[h]
-=======
 	\centering
-	\resizebox{\textwidth}{!}{
+	\resizebox{0.9\textwidth}{!}{
 		\begin{tabular}{|cc|cc|cc|cc|cc|}
 			\hline
 			\multicolumn{2}{|c|}{$I_{G} = 2.92mA\,$}
@@ -307,16 +309,15 @@ se hace con el objetivo de obtener la curva característica del dispositivo, la 
 		\end{tabular}
 	}
 	\caption{Tabla de $I_{AK} = f(V_{AK})$ para distintos valores de $I_{G}$.}
-  \label{table:curva-scr}
+	\label{table:curva-scr}
 \end{table}
 
-
-\begin{figure}[h]
+\begin{figure}[ht]
 	\centering
 	\begin{tikzpicture}
 		\begin{axis}[
 				width=14cm,
-				height=9cm,
+				height=8cm,
 				xlabel={$V_{AK}$ [V]},
 				ylabel={$I_{AK}$ [mA]},
 				grid=both,
@@ -359,17 +360,19 @@ se hace con el objetivo de obtener la curva característica del dispositivo, la 
 				};
 			\addlegendentry{$I_G = 3.02$ mA}
 
-    \end{axis}
-\end{tikzpicture}
-\caption{Curvas características $I_{AK}(V_{AK})$ del SCR para distintos $I_G$.}
-\label{fig:curva-scr}
+		\end{axis}
+	\end{tikzpicture}
+	\caption{Curvas características $I_{AK}(V_{AK})$ del SCR para distintos $I_G$.}
+	\label{fig:curva-scr}
 \end{figure}
 
 Con estos resultados se puede demostrar lo afirmado en el ejercicio anterior, que la tensión de ruptura o disparo del
 SCR disminuye con la aplicación de una corriente en la compuerta del dispositivo. Además, la curva característica
 obtenida se asemeja a lo estudiado en la teoría.
+\vspace{10cm}
 
 
+\clearpage
 \section{Funcionamiento con corriente alterna}
 En esta actividad se estudian dos aspectos fundamentales del funcionamiento del SCR: el control de disparo y el proceso
 de apagado. Estas características resultan esenciales en aplicaciones donde es necesario regular la transferencia de
@@ -458,25 +461,24 @@ Para la realización de la actividad se siguieron los pasos establecidos. En pri
 seleccionando un valor de resistencia de $4.7K \Omega$, suficiente de acuerdo con la información provista en el datasheet del DIAC.
 
 \begin{figure}[ht!]
-<<<<<<< HEAD
-    \centering
-    \begin{tikzpicture}
-        % Paths, nodes and wires:
-        \draw (-1.75, -1) to[full bidirectionaldiode] (-1.75, 1);
-        \draw (1.25, -1) to[voltmeter, l={$V_2$}] (1.25, 1);
-        \draw (-1.75, 1) to[american resistor, l={$R$}] (-1.75, 3);
-        \node[vcc](N1) at (-1.75, 3.5){} node[anchor=south] at (N1.text){$V_{CC}$};
-        \draw (-1.75, 1) -- (1.25, 1);
-        \draw (-1.75, -1) -- (1.25, -1);
-        \draw (3.25, -0) to[voltmeter, l={$V_1$}] (3.25, 2);
-        \draw (-1.75, 3) -| (3.25, 2);
-        \draw (-1.75, -3) to[ammeter] (-1.75, -1);
-        \node[ground] at (-1.75, -3){};
-        \draw (-1.75, 3) -| (-1.75, 3.5);
-        \draw (3.25, -0) |- (-1.75, -1.25);
-    \end{tikzpicture}
-    \caption{circuito implementado en el laboratorio.}
-    \label{fig:circuito-diac}
+	\centering
+	\begin{tikzpicture}
+		% Paths, nodes and wires:
+		\draw (-1.75, -1) to[full bidirectionaldiode] (-1.75, 1);
+		\draw (1.25, -1) to[voltmeter, l={$V_2$}] (1.25, 1);
+		\draw (-1.75, 1) to[american resistor, l={$R$}] (-1.75, 3);
+		\node[vcc](N1) at (-1.75, 3.5){} node[anchor=south] at (N1.text){$V_{CC}$};
+		\draw (-1.75, 1) -- (1.25, 1);
+		\draw (-1.75, -1) -- (1.25, -1);
+		\draw (3.25, -0) to[voltmeter, l={$V_1$}] (3.25, 2);
+		\draw (-1.75, 3) -| (3.25, 2);
+		\draw (-1.75, -3) to[ammeter] (-1.75, -1);
+		\node[ground] at (-1.75, -3){};
+		\draw (-1.75, 3) -| (-1.75, 3.5);
+		\draw (3.25, -0) |- (-1.75, -1.25);
+	\end{tikzpicture}
+	\caption{circuito implementado en el laboratorio.}
+	\label{fig:circuito-diac}
 \end{figure}
 
 A continuación, se varió la tensión alimentación $V_{CC}$ desde $0\,\text{V}$ hasta $50\,\text{V}$ siguiendo los valores
@@ -488,115 +490,122 @@ En la tabla \ref{table:diac} se puede observar los valores obtenidos, que son lo
 DIAC. En la figura \ref{fig:diac} se grafican dichos valores.
 
 \begin{table}[ht!]
-<<<<<<< HEAD
-    \centering
-    \small
-    \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
-       \hline
-       $V_{CC}$ [V] & 0 & 10 & 20 & 30 & 32 & 34 & 40 & 45 & 50 \\
-       \hline
-       $V_{AK}$ [V] & 0 & 10 & 20 & 30 & 23.8 & 23.4 & 22.6 & 22.2 & 21.9 \\
-       \hline
-       $I_{AK}$ [mA] & 0 & 0 & 0 & 0 & 1.74 & 2.24 & 3.72 & 4.9 & 5.92 \\
-       \hline
-    \end{tabular}
-    \caption{relevamiento de disparo del SCR para diferentes valores de $I_G$.}
-    \label{table:diac}
+	\centering
+	\small
+	\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
+		\hline
+		$V_{CC}$ [V]  & 0 & 10 & 20 & 30 & 32   & 34   & 40   & 45   & 50   \\
+		\hline
+		$V_{AK}$ [V]  & 0 & 10 & 20 & 30 & 23.8 & 23.4 & 22.6 & 22.2 & 21.9 \\
+		\hline
+		$I_{AK}$ [mA] & 0 & 0  & 0  & 0  & 1.74 & 2.24 & 3.72 & 4.9  & 5.92 \\
+		\hline
+	\end{tabular}
+	\caption{relevamiento de disparo del SCR para diferentes valores de $I_G$.}
+	\label{table:diac}
 \end{table}
 
 \begin{figure}[ht!]
-  \centering
-  \begin{tikzpicture}
-    \begin{axis}[
-      width=12cm, height=8cm,
-      xlabel={$V_{AK}$ [V]},
-      ylabel={$I_{AK}$ [mA]},
-      xmin=-55, xmax=55,
-      ymin=-7, ymax=7,
-      grid=both,
-      grid style={line width=.1pt, draw=gray!30},
-      major grid style={line width=.2pt,draw=gray!50},
-      legend pos=north west,
-      enlargelimits=false,
-      clip=false,
-    ]
-
-    % ----------- Curva positiva -----------
-    \addplot[
-      mark=*,
-      mark options={fill=white},
-      thick,
-    ] coordinates {
-      (0,0)
-      (10,0)
-      (20,0)
-      (30,0)
-      (23.8,1.74)
-      (23.4,2.24)
-      (22.6,3.72)
-      (22.2,4.90)
-      (21.9,5.92)
-    };
-
-    % ----------- Curva negativa (reflejada) -----------
-    \addplot[
-      mark=*,
-      mark options={fill=white},
-      thick,
-    ] coordinates {
-      (0,0)
-      (-10,0)
-      (-20,0)
-      (-30,0)
-      (-23.8,-1.74)
-      (-23.4,-2.24)
-      (-22.6,-3.72)
-      (-22.2,-4.90)
-      (-21.9,-5.92)
-    };
-
-    % ----------- Puntos experimentales ----------
-    \addplot[only marks, mark=*, mark size=2pt] coordinates {
-      (0,0) (10,0) (20,0) (21.9,5.92)
-      (22.2,4.90) (22.6,3.72) (23.4,2.24) (23.8,1.74) (30,0)
-
-      (0,0) (-10,0) (-20,0) (-21.9,-5.92)
-      (-22.2,-4.90) (-22.6,-3.72) (-23.4,-2.24) (-23.8,-1.74) (-30,0)
-    };
-
-    \end{axis}
-  \end{tikzpicture}
-  \caption{curva $I_{AK}=f(V_{AK})$ del DIAC.} 
-  \label{fig:diac}
-\end{figure}
-
-\chapter{TRIAC}
-\section{Polarización y funcionamiento}
-\subsection{Actividad de laboratorio}
-\begin{figure}[ht]
 	\centering
 	\begin{tikzpicture}
-		% Paths, nodes and wires:
-		\draw (0.02, 2) to[american resistor, l={$R$}] (0.02, 4);
-		\node[ground] at (0.02, -3.7){};
-		\draw (-1.253, -0.018) to[full bidirectionaldiode] (-3.253, -0.018);
-		\draw (0, -1.75) to[full triac] (0.02, 0.3);
-		\draw (-5, -0) to[ammeter, l={$I_G$}] (-3.5, -0);
-		\draw (-6, -1) to[american potentiometer, mirror] (-6, 1);
-		\draw (0.02, 0.3) |- (0, 2);
-		\draw (-6, 1) -- (-6, 2) -- (0, 2);
-		\draw (0.02, -3.7) to[ammeter, l={$I_A$}] (0, -1.75);
-		\draw (2.25, -2) to[voltmeter, l={$V_{CC}$}] (2.25, 1);
-		\draw (2.25, -2) |- (0.02, -3.7);
-		\draw (2.25, 1) |- (0.02, 4);
-		\draw (-6, -1) |- (0.02, -3.7);
-		\node[vcc] at (0, 4){};
-		\node[vcc](N1) at (0.02, 4){} node[anchor=south] at (N1.text){$V_{CC}$};
-		\draw (-5, -0) -- (-5.44, -0);
-		\draw (-3.25, -0) -- (-3.5, -0);
-		\draw (-1.253, -0.018) -- (-0.753, -0.018);
+		\begin{axis}[
+				width=12cm, height=8cm,
+				xlabel={$V_{AK}$ [V]},
+				ylabel={$I_{AK}$ [mA]},
+				xmin=-55, xmax=55,
+				ymin=-7, ymax=7,
+				grid=both,
+				grid style={line width=.1pt, draw=gray!30},
+				major grid style={line width=.2pt,draw=gray!50},
+				legend pos=north west,
+				enlargelimits=false,
+				clip=false,
+			]
+
+			% ----------- Curva positiva -----------
+			\addplot[
+				mark=*,
+				mark options={fill=white},
+				thick,
+			] coordinates {
+					(0,0)
+					(10,0)
+					(20,0)
+					(30,0)
+					(23.8,1.74)
+					(23.4,2.24)
+					(22.6,3.72)
+					(22.2,4.90)
+					(21.9,5.92)
+				};
+
+			% ----------- Curva negativa (reflejada) -----------
+			\addplot[
+				mark=*,
+				mark options={fill=white},
+				thick,
+			] coordinates {
+					(0,0)
+					(-10,0)
+					(-20,0)
+					(-30,0)
+					(-23.8,-1.74)
+					(-23.4,-2.24)
+					(-22.6,-3.72)
+					(-22.2,-4.90)
+					(-21.9,-5.92)
+				};
+
+			% ----------- Puntos experimentales ----------
+			\addplot[only marks, mark=*, mark size=2pt] coordinates {
+					(0,0) (10,0) (20,0) (21.9,5.92)
+					(22.2,4.90) (22.6,3.72) (23.4,2.24) (23.8,1.74) (30,0)
+
+					(0,0) (-10,0) (-20,0) (-21.9,-5.92)
+					(-22.2,-4.90) (-22.6,-3.72) (-23.4,-2.24) (-23.8,-1.74) (-30,0)
+				};
+
+		\end{axis}
 	\end{tikzpicture}
+	\caption{curva $I_{AK}=f(V_{AK})$ del DIAC.}
+	\label{fig:diac}
+\end{figure}
+\clearpage
+\chapter{TRIAC}
+\section{Polarización y funcionamiento}
+\begin{figure}[ht]
+	\centering
+	\resizebox{0.5\textwidth}{!}{
+		\begin{tikzpicture}
+			% Paths, nodes and wires:
+			\draw (0.02, 2) to[american resistor, l={$R$}] (0.02, 4);
+			\node[ground] at (0.02, -3.7){};
+			\draw (-1.253, -0.018) to[full bidirectionaldiode] (-3.253, -0.018);
+			\draw (0, -1.75) to[full triac] (0.02, 0.3);
+			\draw (-5, -0) to[ammeter, l={$I_G$}] (-3.5, -0);
+			\draw (-6, -1) to[american potentiometer, mirror] (-6, 1);
+			\draw (0.02, 0.3) |- (0, 2);
+			\draw (-6, 1) -- (-6, 2) -- (0, 2);
+			\draw (0.02, -3.7) to[ammeter, l={$I_A$}] (0, -1.75);
+			\draw (2.25, -2) to[voltmeter, l={$V_{CC}$}] (2.25, 1);
+			\draw (2.25, -2) |- (0.02, -3.7);
+			\draw (2.25, 1) |- (0.02, 4);
+			\draw (-6, -1) |- (0.02, -3.7);
+			\node[vcc] at (0, 4){};
+			\node[vcc](N1) at (0.02, 4){} node[anchor=south] at (N1.text){$V_{CC}$};
+			\draw (-5, -0) -- (-5.44, -0);
+			\draw (-3.25, -0) -- (-3.5, -0);
+			\draw (-1.253, -0.018) -- (-0.753, -0.018);
+		\end{tikzpicture}
+	}
 	\caption{circuito implementado en el laboratorio.}
+\end{figure}
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.5\linewidth]{Images/Circuito armado Triac.jpeg}
+	\caption{Circuito implementado en una protoboard.}
 \end{figure}
 
 
@@ -717,76 +726,108 @@ y su dependencia con la tensión de alimentación.
 
 
 \section{Aplicación: control de disparo (Dimmer)}
+
 \subsection{Actividad de laboratorio}
-\subsection{Análisis de las gráficas relevadas}
-En el dimmer con DIAC--TRIAC, el ángulo de disparo $\alpha$ lo fija la constante de tiempo
-$RC$ del circuito de compuerta. Al aumentar el valor del potenciómetro, crece $\tau=RC$ y
-la tensión del capacitor tarda más en alcanzar el \emph{breakover} del DIAC ($\approx 30$ V),
-por lo que $\alpha$ aumenta y la potencia en la carga disminuye.
 
-De las tres capturas oscilográficas:
-\begin{itemize}
-	\item \textbf{Potenciómetro al máximo (mayor $R$):} la conducción inicia tarde en cada
-	      semiciclo ($\alpha$ grande). La forma de onda en la carga muestra «rebanado»
-	      de los primeros grados y un valor eficaz bajo.
-	\item \textbf{Posición intermedia:} $\alpha$ medio. El intervalo de conducción crece y
-	      el valor eficaz sube. La salida mantiene simetría entre semiciclos gracias al DIAC.
-	\item \textbf{Potenciómetro al mínimo (menor $R$):} $\alpha$ pequeño, se aprovecha casi todo
-	      el semiciclo. La tensión eficaz de carga se aproxima a la de la red.
-\end{itemize}
-En los tres casos el TRIAC se apaga al final de cada semiciclo cuando la corriente
-instantánea cae por debajo de la corriente de mantenimiento $I_H$; se observa un
-\emph{cierre} cercano al cruce por cero.
-
-\subsection{Dependencia de $I_H$ con $I_G$, $V_G$ y $V_{CC}$}
-\paragraph{Definición práctica.}
-Con carga resistiva $R_L$ y tensión de pico $V_m$, una vez disparado el TRIAC, la corriente
-de carga vale $i(t)=\dfrac{V_m}{R_L}\sin(\omega t)$ (desfasada por $\alpha$). El apagado se
-produce cuando $|i(t)|=I_H$. De aquí:
-\[
-	\omega t_{\mathrm{off}} = \arcsin\!\left(\frac{I_H R_L}{V_m}\right), \qquad
-	\beta = \omega t_{\mathrm{off}}, \qquad
-	I_H = \frac{V_m}{R_L}\,\sin\beta,
-\]
-donde $\beta$ es el ángulo de apagado medido en la oscilografía (el instante en que la
-tensión de carga vuelve a cero).
-
-\paragraph{Relación con $I_G$ y $V_G$.}
-$I_H$ es un parámetro del dispositivo y \emph{no depende} del disparo una vez que el TRIAC
-está en conducción. $I_G$ y $V_G$ sólo afectan \emph{cuándo} se dispara (el valor de
-$\alpha$), no el umbral de mantenimiento. Pueden existir efectos indirectos: un disparo con
-pulso de compuerta más intenso incrementa la potencia media y la temperatura de juntura, y
-$\,I_H$ suele presentar ligera dependencia con $T_J$ (según hoja de datos). Ese efecto es
-secundario frente a la dependencia dominante con la corriente de carga instantánea.
-
-\paragraph{Relación con $V_{CC}$.}
-A mayor $V_{CC}$ (mayor $V_m$), para un mismo $R_L$ la corriente de carga es mayor y el
-criterio $|i|=I_H$ se alcanza más cerca del cruce por cero, por lo que la conducción se
-extiende un poco más dentro del semiciclo. De la ecuación anterior:
-\[
-	\beta = \arcsin\!\left(\frac{I_H R_L}{V_m}\right),
-\]
-se ve que $\beta$ \emph{disminuye} al aumentar $V_m$ (el TRIAC se mantiene conduciendo
-hasta un ángulo más próximo a $\pi$).
-
-\paragraph{Procedimiento de extracción de $I_H$ (usado en el laboratorio).}
 \begin{enumerate}
-	\item Medir en el osciloscopio el instante de apagado por semiciclo y leer la tensión de
-	      carga $v_L(t_{\mathrm{off}})$.
-	\item Calcular $i(t_{\mathrm{off}})=v_L(t_{\mathrm{off}})/R_L$; ese valor es $I_H$.
-	\item Alternativamente, medir el ángulo $\beta$ y usar $I_H=\dfrac{V_m}{R_L}\sin\beta$.
+	\item Se conectó el transformador de aislamiento a la red eléctrica y luego el
+	      osciloscopio a la salida del transformador. Esto permitió aislar galvánicamente el
+	      instrumento del circuito dimmer, evitando cruces de potencial con la línea.
+	\item Se llevó el potenciómetro al valor óhmico máximo.
+	\item Se observó la forma de onda en el osciloscopio y se graficó la tensión sobre la
+	      carga resistiva (lámpara incandescente de 20 W).
+	\item Se variaron las posiciones del potenciómetro registrando tres oscilogramas
+	      representativos: resistencia máxima, intermedia y mínima.
+	\item Finalmente, se estimó la corriente de mantenimiento $I_H$ del TRIAC mediante un método
+	      indirecto, a partir de la tensión de red y la resistencia equivalente de la lámpara.
 \end{enumerate}
 
-\subsection{Conclusiones}
+\subsection{Análisis de las gráficas relevadas}
+
+En el dimmer con DIAC–TRIAC, el ángulo de disparo $\alpha$ está determinado por la constante de
+tiempo $RC$ del circuito de compuerta. Al aumentar el valor del potenciómetro, crece
+$\tau=RC$ y la tensión del capacitor tarda más en alcanzar el \emph{breakover} del DIAC
+($\approx30$ V), por lo que $\alpha$ aumenta y la potencia en la carga disminuye.
+
+De las tres capturas obtenidas:
+
 \begin{itemize}
-	\item El control de potencia se logra variando $\alpha$ mediante la constante de tiempo
-	      $RC$; la presencia del DIAC asegura disparo simétrico y reduce armónicos pares.
-	\item $I_H$ fija el \emph{apagado natural} por semiciclo y es mayormente independiente
-	      de $I_G$ y $V_G$ una vez establecido el régimen de conducción.
-	\item El aumento de $V_{CC}$ incrementa la corriente de carga y retrasa (angularmente)
-	      el cumplimiento de $|i|=I_H$, extendiendo levemente el intervalo de conducción.
-	\item Las mediciones concuerdan con el modelo: las formas de onda muestran recorte
-	      controlado al inicio del semiciclo y apagado próximo al cruce por cero.
+	\item \textbf{Potenciómetro al máximo (mayor $R$):}
+	      La conducción inicia tarde en cada semiciclo ($\alpha$ grande), y se observa un recorte
+	      pronunciado al comienzo de cada semiciclo. La potencia disipada en la carga es baja.\\[4pt]
+	      \begin{center}
+		      \includegraphics[width=0.6\textwidth]{Images/potenciometro al maximo Dimmer.jpeg}
+	      \end{center}
+
+	\item \textbf{Posición intermedia:}
+	      $\alpha$ medio. El intervalo de conducción crece y la tensión eficaz en la carga
+	      aumenta. Se mantiene la simetría entre semiciclos, lo que indica un disparo parejo por
+	      el DIAC.\\[4pt]
+	      \begin{center}
+		      \includegraphics[width=0.6\textwidth]{Images/Potenciometro a la mitad Dimmer.jpeg}
+	      \end{center}
+
+	\item \textbf{Potenciómetro al mínimo (menor $R$):}
+	      $\alpha$ pequeño. El TRIAC conduce casi todo el semiciclo y la tensión eficaz sobre la
+	      carga se aproxima a la de la red. La lámpara ilumina con máxima intensidad.\\[4pt]
+	      \begin{center}
+		      \includegraphics[width=0.6\textwidth]{Images/potenciometro al minimo Dimmer.jpeg}
+	      \end{center}
+\end{itemize}
+
+En los tres casos se observa que el TRIAC se apaga en las proximidades del cruce por cero, lo
+que corresponde al instante donde la corriente de carga cae por debajo de la corriente de
+mantenimiento $I_H$.
+
+\subsection{Medición indirecta de la corriente de mantenimiento $I_H$}
+
+Para estimar $I_H$, se consideró que la lámpara de 20 W a 220 V presenta una resistencia media:
+\[
+	R_L = \frac{V_\mathrm{RMS}^2}{P} = \frac{220^2}{20} \approx 2420~\Omega.
+\]
+La tensión de pico de la red es $V_m = 311$ V, por lo tanto:
+\[
+	I_\mathrm{max} = \frac{V_m}{R_L} \approx 0.128~\text{A}.
+\]
+
+A partir de las oscilografías, el apagado se produce muy próximo al cruce por cero,
+correspondiente a $\beta \approx 175^{\circ}$. Sustituyendo en:
+\[
+	I_H = \frac{V_m}{R_L}\sin(\beta),
+\]
+se obtiene:
+\[
+	I_H = 0.128\,\sin(175^{\circ}) \approx 0.011~\text{A}.
+\]
+
+Por lo tanto, la corriente de mantenimiento estimada es aproximadamente:
+\[
+	I_H \approx 11~\text{mA},
+\]
+valor coherente con los TRIACs de uso general (TIC-226, BT136, etc.), que presentan $I_H$
+típico entre 5 mA y 25 mA según hoja de datos.
+
+\subsection{Dependencia de $I_H$ con $I_G$, $V_G$ y $V_{CC}$}
+
+El valor de $I_H$ es una característica interna del TRIAC y no depende directamente del
+disparo, sino de las corrientes de carga. Los parámetros $I_G$ y $V_G$ sólo determinan el
+instante de encendido (ángulo $\alpha$), mientras que $V_{CC}$ fija la amplitud de la corriente
+máxima. A mayor $V_{CC}$ (mayor tensión de red), la corriente de carga crece y el apagado se
+produce más cerca del cruce por cero, reduciendo ligeramente el ángulo $\beta$.
+
+\subsection{Conclusiones}
+
+\begin{itemize}
+	\item El dimmer permite controlar la potencia en la carga variando el ángulo de disparo
+	      $\alpha$ mediante la constante de tiempo $RC$.
+	\item El DIAC garantiza disparos simétricos en ambos semiciclos, evitando deformaciones
+	      asimétricas en la forma de onda.
+	\item La corriente de mantenimiento $I_H$ fue determinada indirectamente como
+	      $I_H \approx 11$ mA, en buen acuerdo con valores típicos de dispositivos comerciales.
+	\item Se verificó que el apagado del TRIAC ocurre próximo al cruce por cero, cumpliendo el
+	      comportamiento teórico esperado.
+	\item Las oscilografías confirman el recorte controlado del semiciclo y la variación suave
+	      del valor eficaz al girar el potenciómetro.
 \end{itemize}
 
 
@@ -891,4 +932,68 @@ parámetros dependen de la variante (\mbox{-500/-600/-800}) y del cuadrante de d
 \clearpage
 
 \chapter{Conclusión}
+
+\noindent En el trabajo se caracterizaron los mecanismos de disparo y retención de tiristores
+(SCR/ TRIAC) y el uso del DIAC como elemento de arranque, contrastando mediciones,
+simulaciones y aplicación práctica (dimmer). Los resultados son coherentes entre sí y con
+la teoría.
+
+\medskip
+\noindent\textbf{Hallazgos principales}
+\begin{itemize}
+	\item La curva \(I_G\!-\!V_G\) de compuerta mostró umbral en \(0{,}55{-}0{,}65\ \mathrm{V}\) y
+	      crecimiento exponencial; para \(V_G\approx0{,}70\ \mathrm{V}\) se midió \(I_G\sim\!4\ \mathrm{mA}\),
+	      consistente con una unión \(p\!-\!n\).
+	\item En el SCR, las barridas evidenciaron disparo con \(I_{G,\text{th}}\) bien definido y
+	      enclavamiento: luego del disparo, la conducción se mantiene mientras \(I_A>I_H\).
+	      La pérdida de conducción coincide con el cruce por cero cuando \(I_A<I_H\).
+	\item El DIAC (DB3) presentó disparo por sobretensión cercano al valor típico
+	      de hoja de datos (\(V_{BO}\approx 32\ \mathrm{V}\)) y buena simetría entre semiciclos,
+	      lo que estabiliza el disparo del TRIAC en AC.
+	\item En el TRIAC (BT137X) se verificó comportamiento análogo al SCR pero
+	      bidireccional, con disparo por cuadrantes según \(V_G\) y \(I_G\); las curvas
+	      \(I_A=f(I_G)\) para \(V_{CC}\in\{80,130,180\}\ \mathrm{V}\) mostraron mayor pendiente y
+	      mayor corriente sostenida a medida que aumenta \(V_{CC}\).
+	\item En el dimmer \(R\!-\!C\!-\!\text{DIAC}\!-\!\text{TRIAC}\), el ángulo de disparo \(\alpha\) se controló
+	      vía \(\tau=RC\): al incrementar \(R\), crece \(\tau\) y el disparo se retrasa
+	      (menor valor eficaz en la carga). La tensión pico considerada fue la de red
+	      (\(V_p=\sqrt{2}\,V_{\mathrm{rms}}\)).
+	\item La \(I_H\) se estimó \emph{indirectamente} observando el instante de extinción:
+	      si próximo al cruce por cero el TRIAC deja de conducir aun con compuerta
+	      abierta, entonces \(I_{\text{carga}}(t_{\text{off}})<I_H\). Esta condición se
+	      verificó sin ambigüedad en las formas de onda medidas.
+\end{itemize}
+
+\medskip
+\noindent\textbf{Implicancias de diseño}
+\begin{itemize}
+	\item La red de disparo debe garantizar \(I_T>I_L\) durante el frente y \(I_T>I_H\) en
+	      régimen, considerando tolerancias y temperatura.
+	\item Para cargas inductivas o redes ruidosas, es recomendable un \emph{snubber}
+	      \(R\!-\!C\) para limitar \(dv/dt\) y evitar disparos espurios.
+	\item La elección del DIAC y el dimensionamiento de \(R\)–\(C\) fijan el rango útil de
+	      \(\alpha\) y la repetibilidad entre semiciclos.
+\end{itemize}
+
+\medskip
+\noindent En síntesis, las mediciones y simulaciones confirman el modelo: el disparo está
+regido por \(I_G\) (o \(V_{BO}\) con DIAC), la retención por \(I_H\), y el control de potencia en
+AC se logra modulando \(\alpha\) vía \(\tau=RC\). El conjunto de resultados respalda los criterios
+de diseño propuestos y explica las limitaciones prácticas observadas.
+
+\subsection{QR de datasheets (referencia rápida)}
+\label{subsec:qr-datasheets}
+
+\begin{figure}[H]
+	\centering
+	% Tres QR en una fila; ajustá el 0.28 si querés más/menos tamaño
+	\begin{tabular}{ccc}
+		\includegraphics[width=0.28\textwidth]{"Images/DB3_datasheet.png"}    &
+		\includegraphics[width=0.28\textwidth]{"Images/BT137X datasheet.png"} &
+		\includegraphics[width=0.28\textwidth]{"Images/TYN612 datasheet.png"}                                                         \\
+		\footnotesize DIAC DB3                                                & \footnotesize TRIAC BT137X & \footnotesize SCR TYN612 \\
+	\end{tabular}
+	\caption{Códigos QR a las hojas de datos utilizadas para este trabajo práctico.}
+	\label{fig:qr_datasheets}
+\end{figure}
 \end{document}
