@@ -1,0 +1,90 @@
+\documentclass{informeutn}
+
+\materia{Dispositivos Electrónicos}
+\titulo{Trabajo práctico N°6: Flujo de diseño analógico con CMOS}
+\comision{3R2}
+\autores{Coordinador: Prieto Angelo 401012 \\
+        Documentador y operador: Gaston Grasso 401892}
+\fecha{30-11-2025}
+
+\begin{document}
+\maketitle
+\tableofcontents
+
+\chapter{Introducción}
+En el presente trabajo práctico se aborda el flujo completo de diseño analógico utilizando 
+tecnología CMOS, con el objetivo de comprender y aplicar las etapas necesarias para 
+desarrollar un circuito integrado desde su especificación funcional hasta su implementación 
+física.
+
+Para ello, se emplea el proceso tecnológico SKY130, un Process Design Kit (PDK) de libre 
+acceso que permite realizar todas las etapas del diseño, desde la simulación eléctrica del 
+circuito hasta la verificación del layout respetando reglas de diseño reales. Asimismo, se 
+utilizan herramientas opensource de diseño de circuitos integrados, con el fin de validar 
+esquemáticos, realizar simulaciones y asegurar la correctitud física mediante 
+verificaciones DRC (Design Rule Check) y LVS (Layout Versus Schematic).
+
+El circuito elegido para este trabajo es un inversor analógico CMOS, una de las celdas más 
+básicas y esenciales en el diseño digital y analógico. Su estructura, compuesta por un 
+transistor PMOS y un transistor NMOS en configuración complementaria, permite obtener un 
+comportamiento eficiente y robusto, lo que lo convierte en un punto de partida ideal para 
+comprender el flujo de diseño y las particularidades de la tecnología CMOS.
+
+A lo largo del informe se describen las etapas seguidas en el desarrollo del inversor: el 
+análisis y simulación del esquemático, la implementación del layout siguiendo las reglas 
+específicas del proceso, y las verificaciones necesarias para asegurar la fabricabilidad 
+del diseño. De esta manera, se integra el conocimiento teórico estudiado con herramientas 
+prácticas modernas, brindando una experiencia completa y representativa del flujo de diseño 
+utilizado en la industria de circuitos integrados.
+
+\chapter{Actividad 1: especificaciones de diseño}
+
+El inversor CMOS a diseñar debe cumplir las siguientes especificaciones:\\
+Tecnología: SKY130 (130 nm CMOS).\\
+Voltaje de alimentación (VDD): 1.8 V.\\
+Caracteristicas del transistor PMOS:
+\begin{itemize}
+    \item L = 0,15 (Longitud de canal del transistor en micrómetros)
+    \item Wp = 2,1 (Ancho del canal del transistor en micrómetros)
+    \item nf = 1 (Número de fingers)
+    \item mult = 1 (Multiplicidad)
+    \item model: pfet\_01v8
+\end{itemize}
+Caracteristicas del transistor NMOS:
+\begin{itemize}
+    \item L = 0,15
+    \item Wn = 1,05
+    \item nf = 1
+    \item mult = 1
+    \item model = nfet\_01v8
+\end{itemize}
+Ajustar Capacidad de carga de salida: 2 pF (considerando fan-out).\\
+Tiempo de transición objetivo: menor a 50 ns para subida y bajada.\\
+
+\section{Instalación de herramientas}
+
+Para el diseño y simulación del inversor CMOS se utilizaron herramientas opensource compatibles con el PDK SKY130:
+\begin{itemize}
+    \item Xschem para diseñar y simular esquemáticos.
+    \item Ngspice: modelos spice para simulación eléctrica en el entorno de Xschem.
+    \item Magic para ruteo y layout, servirá ademas para verificación del diseño físico (DRC).
+    \item Netgen para realizar la comparación LVS (Layout versus Schematic).
+\end{itemize}
+
+\chapter{Actividad 2: flujo de diseño analógico}
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=1\linewidth]{pictures/flujo-diseno.png}
+    \caption{flujo de diseño.}
+    \label{fig:flujo-diseño}
+\end{figure}
+
+Para esta actividad, se sigue cuidadosamente el procedimiento descrito en las consignas del 
+trabajo.
+
+\chapter{Conclusión}
+
+
+
+
+\end{document}
