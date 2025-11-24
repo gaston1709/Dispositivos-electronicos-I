@@ -63,7 +63,8 @@ Tiempo de transición objetivo: menor a 50 ns para subida y bajada.\\
 
 \section{Instalación de herramientas}
 
-Para el diseño y simulación del inversor CMOS se utilizaron herramientas opensource compatibles con el PDK SKY130:
+Para el diseño y simulación del inversor CMOS se utilizaron herramientas opensource compatibles 
+con el PDK SKY130:
 \begin{itemize}
     \item Xschem para diseñar y simular esquemáticos.
     \item Ngspice: modelos spice para simulación eléctrica en el entorno de Xschem.
@@ -81,6 +82,69 @@ Para el diseño y simulación del inversor CMOS se utilizaron herramientas opens
 
 Para esta actividad, se sigue cuidadosamente el procedimiento descrito en las consignas del 
 trabajo.
+
+\section{Schematic design}
+Para este parte del diseño se ha utilizado el programa Xschem. Se puede observar el resultado 
+obtenido en las figuras  \ref{fig:schem} (esqumático del inversor) y \ref{fig:sym} (símbolo 
+diseñado para el inversor).
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=1\linewidth]{pictures/inversor esquematico.png}
+    \caption{captura de pantalla en programa Xschem. Esquemático de inversor.}
+    \label{fig:schem}
+\end{figure}
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=1\linewidth]{pictures/inversor symbol.png}
+    \caption{símbolo de inversor.}
+    \label{fig:sym}
+\end{figure}
+
+\section{Simulation}
+Para esta parte del diseño también se ha utilizado el programa Xschem. Se ha insertado el 
+símbolo del inversor diseñado en un circuito, y se ha realizado las simulaciones pertinentes, 
+comprobando así el correcto funcionamiento. Se puede observar el resultado en la figura 
+\ref{fig:sim}.
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=1\linewidth]{pictures/simulacion esquematico.png}
+    \caption{simulación de esquemático diseñado.}
+    \label{fig:sim}
+\end{figure}
+
+\section{Layout: placement / routing}
+Para esta parte del diseño se ha utilizado el programa Magic. Se puede observar el resultado obtenido en la figura \ref{fig:enrutado}.
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=1\linewidth]{pictures/chip expandido.png}
+    \caption{enrutado de chip.}
+    \label{fig:enrutado}
+\end{figure}
+
+\section{DRC}
+Para esta etapa, se ha utilizado nuevamente el programa Magic, y se ha ejecutado el verificador
+de reglas de diseño DRC. Se ha obtenido un resultado satisfactorio al no presentarse ningún error.
+Se puede observar en la figura \ref{fig:drc}.
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=1\linewidth]{pictures/zero error DRC.png}
+    \caption{captura DRC.}
+    \label{fig:drc}
+\end{figure}
+
+\section{Post-layout}
+Una vez finalizado el diseño físico del circuito, se realizaron simulaciones post-layout con el fin de evaluar el impacto de los efectos y parásitos introducidos durante el proceso de layout. Para ello, primero se efectuó la extracción de los elementos parasitarios, obteniendo un netlist que incluye las resistencias y capacitancias asociadas a las interconexiones y a la geometría final del diseño.
+
+Posteriormente, este netlist fue combinado con los modelos del proceso del PDK Sky130, lo que permitió incorporar las características eléctricas reales de los dispositivos. Con esta información, se llevaron a cabo simulaciones en un entorno SPICE para analizar parámetros como retardos de propagación, integridad de señal y consumo de potencia.
+
+Luego, se compararon los resultados post-layout con las simulaciones pre-layout basadas únicamente en el esquemático.
+
+Finalmente se generó el archivo .gds, el cual se manda a la faundry para iniciar la producción del chip.
 
 \chapter{Conclusión}
 
